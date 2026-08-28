@@ -1,6 +1,6 @@
 
-import { ScrambleText } from './src/opening/ScrambleText.js';
-import { LoadingBar } from './src/opening/LoadingBar.js';
+import { ScrambleText } from './ScrambleText.js';
+import { LoadingBar } from './LoadingBar.js';
 
 const wait = (ms) =>
   new Promise((resolve) => setTimeout(resolve, ms));

@@ -4,7 +4,7 @@ import { Scene } from './scene/Scene.js';
 import { Camera } from './scene/Camera.js';
 import { World } from './scene/World.js';
 
-import { Intro } from '../Intro.js';
+import { Intro } from './opening/Intro.js';
 import { Home } from './home/Home.js';
 
 
