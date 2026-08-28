@@ -1,4 +1,3 @@
-
 const CHARACTERS =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_-+=<>/\\|';
 
@@ -182,7 +181,8 @@ async function startIntro() {
 
     opening.style.display = 'none';
 
-    console.log('Introduction finished');
+    // Hand off to the Home page (multi-page app: separate HTML file)
+    window.location.href = '/home.html';
 }
 
 

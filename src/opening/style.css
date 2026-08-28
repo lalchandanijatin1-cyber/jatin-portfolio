@@ -126,11 +126,7 @@ body {
 
     color: var(--title-color);
 
-    font-size: clamp(
-        35px,
-        6vw,
-        80px
-    );
+    font-size: clamp(24px, 5vw, 70px);
 
     font-weight: 600;
 

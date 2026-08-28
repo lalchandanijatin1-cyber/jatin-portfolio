@@ -1,0 +1,379 @@
+/* =========================================
+   COLOR / SIZE SETTINGS
+========================================= */
+
+:root {
+
+    --menu-btn-bg: rgba(90, 90, 90, 0.75);
+    --menu-btn-bg-hover: rgba(140, 140, 140, 0.85);
+    --menu-btn-border: rgba(20, 20, 20, 0.6);
+    --menu-btn-text: #ffffff;
+
+    --overlay-color: rgba(0, 0, 0, 0.45);
+
+    --menu-width: min(420px, 88vw);
+}
+
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000000;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#home {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.home-video {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    /* Subtle slow zoom so the background feels alive */
+    animation: bg-drift 30s ease-in-out infinite alternate;
+}
+
+
+@keyframes bg-drift {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
+}
+
+
+.home-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    background: var(--overlay-color);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.home-logo-wrap {
+
+    position: relative;
+    z-index: 2;
+
+    margin-top: clamp(30px, 8vh, 90px);
+
+    opacity: 0;
+    transform: translateY(-15px);
+
+    animation: fade-in-down 0.8s ease forwards;
+    animation-delay: 0.1s;
+}
+
+
+.home-logo {
+
+    width: min(520px, 70vw);
+    height: auto;
+
+    display: block;
+}
+
+
+@keyframes fade-in-down {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.home-menu {
+
+    position: relative;
+    z-index: 2;
+
+    margin-top: clamp(24px, 5vh, 48px);
+
+    width: var(--menu-width);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.menu-btn,
+.icon-btn {
+
+    font-family: inherit;
+    cursor: pointer;
+
+    border: 2px solid var(--menu-btn-border);
+    background: var(--menu-btn-bg);
+    color: var(--menu-btn-text);
+
+    opacity: 0;
+    transform: translateY(14px);
+
+    animation: fade-in-up 0.5s ease forwards;
+
+    transition:
+        background 0.15s ease,
+        transform 0.12s ease,
+        border-color 0.15s ease;
+}
+
+
+/* Staggered appearance, matching menu order */
+
+.home-menu > .menu-btn:nth-of-type(1) { animation-delay: 0.25s; }
+.home-menu > .menu-btn:nth-of-type(2) { animation-delay: 0.35s; }
+.home-menu > .menu-btn:nth-of-type(3) { animation-delay: 0.45s; }
+.home-menu > .menu-btn:nth-of-type(4) { animation-delay: 0.55s; }
+.menu-row .world-icon-btn { animation-delay: 0.65s; }
+.menu-row .menu-btn-half:nth-of-type(1) { animation-delay: 0.7s; }
+.menu-row .menu-btn-half:nth-of-type(2) { animation-delay: 0.75s; }
+
+
+@keyframes fade-in-up {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.menu-btn {
+
+    width: 100%;
+    padding: 14px 0;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    text-transform: none;
+
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.35);
+}
+
+
+.menu-btn:hover,
+.icon-btn:hover {
+
+    background: var(--menu-btn-bg-hover);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+
+.menu-btn:active,
+.icon-btn:active {
+
+    transform: translateY(0) scale(0.97);
+    background: rgba(60, 60, 60, 0.85);
+}
+
+
+/* Row holding: world icon + HOBBIES + OTHERS (mirrors the
+   Options/Quit-Game row in the reference) */
+
+.menu-row {
+
+    display: flex;
+    gap: 8px;
+}
+
+
+.menu-btn-half {
+
+    flex: 1;
+    padding: 14px 0;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.35);
+}
+
+
+.icon-btn {
+
+    flex: 0 0 auto;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+}
+
+
+.icon-btn img {
+
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.home-socials {
+
+    position: relative;
+    z-index: 2;
+
+    margin-top: auto;
+    margin-bottom: clamp(20px, 5vh, 40px);
+
+    display: flex;
+    gap: 18px;
+
+    opacity: 0;
+    animation: fade-in-up 0.6s ease forwards;
+    animation-delay: 0.9s;
+}
+
+
+.social-icon {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    transition:
+        background 0.15s ease,
+        transform 0.12s ease;
+}
+
+
+.social-icon img {
+
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+
+.social-icon:hover {
+
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE / RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .home-logo-wrap {
+        margin-top: 24px;
+    }
+
+    .home-logo {
+        width: 82vw;
+    }
+
+    .home-menu {
+        margin-top: 20px;
+    }
+
+    .menu-btn,
+    .menu-btn-half {
+        padding: 12px 0;
+        font-size: 14px;
+    }
+
+    .icon-btn {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+@media (max-height: 640px) {
+
+    .home-logo {
+        width: min(380px, 60vw);
+    }
+
+    .home-logo-wrap {
+        margin-top: 16px;
+    }
+
+    .home-menu {
+        margin-top: 16px;
+        gap: 8px;
+    }
+}

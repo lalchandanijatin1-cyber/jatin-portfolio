@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jatin Lalchandani</title>
+
+    <link rel="stylesheet" href="/src/home/style.css">
+</head>
+
+<body>
+
+    <main id="home">
+
+        <!-- =========================================
+             BACKGROUND VIDEO
+             Place your video at:
+             public/home/background/home-background.mp4
+             (the src below already points there)
+        ========================================== -->
+        <video
+            id="home-video"
+            class="home-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source src="/home/background/home-background.mp4" type="video/mp4">
+        </video>
+
+        <!-- Dark overlay so menu stays readable over the video -->
+        <div class="home-overlay"></div>
+
+        <!-- =========================================
+             TOP LOGO
+             Place your image at:
+             public/home/logo/jatin-lalchandani.png
+        ========================================== -->
+        <div class="home-logo-wrap">
+            <img
+                src="/home/logo/jatin-lalchandani.png"
+                alt="Jatin Lalchandani"
+                class="home-logo"
+            >
+        </div>
+
+        <!-- =========================================
+             MAIN MENU
+        ========================================== -->
+        <nav class="home-menu" aria-label="Main menu">
+
+            <button class="menu-btn" data-target="explore">EXPLORE</button>
+
+            <button class="menu-btn" data-target="projects">PROJECTS</button>
+
+            <button class="menu-btn" data-target="skills">SKILLS</button>
+
+            <button class="menu-btn" data-target="experience">EXPERIENCE</button>
+
+            <div class="menu-row">
+
+                <!-- =========================================
+                     WORLD ICON
+                     Place your image at:
+                     public/home/icons/world.png
+                ========================================== -->
+                <button class="icon-btn world-icon-btn" data-target="hobbies-icon" aria-label="World">
+                    <img src="/home/icons/world.png" alt="">
+                </button>
+
+                <button class="menu-btn menu-btn-half" data-target="hobbies">HOBBIES</button>
+
+                <button class="menu-btn menu-btn-half" data-target="others">OTHERS</button>
+
+            </div>
+
+        </nav>
+
+        <!-- =========================================
+             SOCIAL ICONS
+             Place your images at:
+             public/home/icons/linkedin.png
+             public/home/icons/github.png
+        ========================================== -->
+        <div class="home-socials">
+
+            <a
+                href="https://www.linkedin.com/in/jatin-lalchandani-robotics/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon"
+                aria-label="LinkedIn"
+            >
+                <img src="/home/icons/linkedin.png" alt="LinkedIn">
+            </a>
+
+            <a
+                href="https://github.com/lalchandanijatin1-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon"
+                aria-label="GitHub"
+            >
+                <img src="/home/icons/github.png" alt="GitHub">
+            </a>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="/src/home/index.js"></script>
+
+</body>
+</html>
