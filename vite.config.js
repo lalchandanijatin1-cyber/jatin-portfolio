@@ -13,8 +13,19 @@ export default defineConfig({
         // Opening (existing entry — unchanged)
         main: resolve(__dirname, 'index.html'),
 
-        // Home (new entry)
-        home: resolve(__dirname, 'home.html')
+        // Home
+        home: resolve(__dirname, 'home.html'),
+
+        // Explore
+        explore: resolve(__dirname, 'explore.html'),
+
+        // Empty stub pages, one per Home menu item
+        projects: resolve(__dirname, 'projects.html'),
+        skills: resolve(__dirname, 'skills.html'),
+        experience: resolve(__dirname, 'experience.html'),
+        hobbies: resolve(__dirname, 'hobbies.html'),
+        others: resolve(__dirname, 'others.html'),
+        world: resolve(__dirname, 'world.html')
       }
     }
   }

@@ -1,26 +1,57 @@
 /* =========================================
    HOME PAGE LOGIC
    Independent from Opening. Handles:
-   - Menu button clicks (placeholders for now)
-   - World icon click (placeholder for now)
+   - Menu button clicks — every item now
+     navigates somewhere real.
+   - World icon click — navigates to world.html
 ========================================= */
+
+import { playImageRainTransition } from '../explore/transition.js';
 
 const menuButtons = document.querySelectorAll('.menu-btn');
 const worldIconBtn = document.querySelector('.world-icon-btn');
 
 
 /* =========================================
-   MENU CLICK HANDLER (placeholder)
+   Direct-navigation targets.
+   Each of these is currently an empty stub
+   page (heading only) — fill them in later.
+========================================= */
 
-   Replace the body of this function once each
-   section (Explore, Projects, Skills,
-   Experience, Hobbies, Others) has a real
-   page/route to go to.
+const DIRECT_PAGES = {
+    projects: '/projects.html',
+    skills: '/skills.html',
+    experience: '/experience.html',
+    hobbies: '/hobbies.html',
+    others: '/others.html'
+};
+
+
+/* =========================================
+   MENU CLICK HANDLER
+
+   EXPLORE plays the image-rain transition,
+   then opens Explore.
+
+   Everything else navigates straight to its
+   own page — no transition.
 ========================================= */
 
 function handleMenuClick(target) {
 
-    console.log(`Menu clicked: ${target} (placeholder — no page wired yet)`);
+    if (target === 'explore') {
+        playImageRainTransition('/explore.html');
+        return;
+    }
+
+    const page = DIRECT_PAGES[target];
+
+    if (page) {
+        window.location.href = page;
+        return;
+    }
+
+    console.log(`Menu clicked: ${target} (no page mapped)`);
 }
 
 
@@ -36,13 +67,13 @@ menuButtons.forEach(btn => {
 
 
 /* =========================================
-   WORLD ICON CLICK HANDLER (placeholder)
+   WORLD ICON CLICK HANDLER
 ========================================= */
 
 if (worldIconBtn) {
 
     worldIconBtn.addEventListener('click', () => {
 
-        console.log('World icon clicked (placeholder — no page wired yet)');
+        window.location.href = '/world.html';
     });
 }
