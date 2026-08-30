@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore — Jatin Lalchandani</title>
+
+    <link rel="stylesheet" href="/src/explore/transition.css">
+    <link rel="stylesheet" href="/src/explore/style.css">
+</head>
+
+<body>
+
+    <!-- Starts fully covering the screen (see .veil-start-visible),
+         then transition.js fades it out shortly after load. -->
+    <div id="world-transition-veil" class="veil-start-visible"></div>
+
+    <main id="explore">
+
+        <!-- =========================================
+             BACKGROUND VIDEO
+             Place your video at:
+             public/explore/background/explore-background.mp4
+        ========================================== -->
+        <video
+            id="explore-video"
+            class="explore-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source src="/explore/background/explore-background.mp4" type="video/mp4">
+        </video>
+
+        <div class="explore-overlay"></div>
+
+        <div class="explore-panel-wrap">
+
+            <button class="side-arrow side-arrow-left" id="tab-prev" aria-label="Previous tab">[</button>
+
+            <section class="explore-panel">
+
+                <!-- TAB BAR: Worlds→Projects, Friends→Skills, Servers→Services -->
+                <div class="tab-bar" role="tablist">
+
+                    <button class="tab-btn" data-tab="projects" role="tab">
+                        <span class="tab-label">Projects</span>
+                    </button>
+
+                    <button class="tab-btn" data-tab="skills" role="tab">
+                        <span class="tab-label">Skills</span>
+                    </button>
+
+                    <button class="tab-btn" data-tab="services" role="tab">
+                        <span class="tab-label">Services</span>
+                    </button>
+
+                    <button class="tab-btn tab-close" id="close-tab" aria-label="Close and return to Home">
+                        &#10005;
+                    </button>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <!-- ACTION ROW: Create New / Switch to new UI / Exit
+                         → Build With Me / Connect With Me / Back To Home -->
+                    <div class="action-row">
+
+                        <button class="action-btn" id="build-with-me-btn">
+                            Build With Me
+                        </button>
+
+                        <button class="action-btn" id="connect-with-me-btn">
+                            Connect With Me
+                        </button>
+
+                        <button class="action-btn action-btn-icon" id="back-to-home-btn" aria-label="Back to Home">
+                            &#8617;
+                        </button>
+
+                    </div>
+
+                    <!-- Tab-specific content, rendered by index.js -->
+                    <div class="panel-content" id="panel-content"></div>
+
+                </div>
+
+            </section>
+
+            <button class="side-arrow side-arrow-right" id="tab-next" aria-label="Next tab">]</button>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="/src/explore/index.js"></script>
+
+</body>
+</html>
