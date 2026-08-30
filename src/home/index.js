@@ -7,34 +7,32 @@
 ========================================= */
 
 import { playImageRainTransition } from '../explore/transition.js';
+import { DoorTransition } from '../transitions/door/DoorTransition.js';
 
 const menuButtons = document.querySelectorAll('.menu-btn');
 const worldIconBtn = document.querySelector('.world-icon-btn');
 
 
 /* =========================================
-   Direct-navigation targets.
-   Each of these is currently an empty stub
-   page (heading only) — fill them in later.
+   Pages that open via the door transition,
+   each with its own label text.
 ========================================= */
 
-const DIRECT_PAGES = {
-    projects: '/projects.html',
-    skills: '/skills.html',
-    experience: '/experience.html',
-    hobbies: '/hobbies.html',
-    others: '/others.html'
+const DOOR_PAGES = {
+    projects: { url: '/projects.html', label: 'ENTERING PROJECTS...' },
+    skills: { url: '/skills.html', label: 'ENTERING SKILLS...' },
+    experience: { url: '/experience.html', label: 'ENTERING EXPERIENCE...' },
+    hobbies: { url: '/hobbies.html', label: 'ENTERING HOBBIES...' },
+    others: { url: '/others.html', label: 'ENTERING OTHERS...' }
 };
 
 
 /* =========================================
    MENU CLICK HANDLER
 
-   EXPLORE plays the image-rain transition,
-   then opens Explore.
-
-   Everything else navigates straight to its
-   own page — no transition.
+   EXPLORE → image-rain transition
+   Everything else with a door-page entry
+   → door transition
 ========================================= */
 
 function handleMenuClick(target) {
@@ -44,10 +42,10 @@ function handleMenuClick(target) {
         return;
     }
 
-    const page = DIRECT_PAGES[target];
+    const doorPage = DOOR_PAGES[target];
 
-    if (page) {
-        window.location.href = page;
+    if (doorPage) {
+        DoorTransition.transitionTo(doorPage.url, { label: doorPage.label });
         return;
     }
 

@@ -7,6 +7,7 @@
     <title>Jatin Lalchandani</title>
 
     <link rel="stylesheet" href="/src/explore/transition.css">
+    <link rel="stylesheet" href="/src/transitions/door/door-transition.css">
     <link rel="stylesheet" href="/src/home/style.css">
 </head>
 
@@ -15,6 +16,29 @@
     <!-- Used by the Explore image-rain transition. Hidden until
          the EXPLORE menu item is clicked. -->
     <div id="world-transition-overlay"></div>
+
+    <!-- =========================================
+         DOOR TRANSITION (Home stays visible underneath)
+         Place your door artwork at:
+         public/transitions/door/door.png
+    ========================================== -->
+    <div id="door-transition-overlay">
+
+        <div class="door-dark-layer"></div>
+
+        <div class="door-camera-layer">
+            <div class="door-scene">
+                <img
+                    src="/transitions/door/door.png"
+                    alt=""
+                    class="door-image"
+                >
+            </div>
+        </div>
+
+        <div class="door-label"></div>
+
+    </div>
 
     <main id="home">
 
