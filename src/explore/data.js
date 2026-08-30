@@ -1,7 +1,5 @@
 /* =========================================
    PROJECTS (Worlds tab)
-   Only the first 2 are real/clickable.
-   The remaining 18 are locked "COMING SOON" slots.
 ========================================= */
 
 export const PROJECTS = [
@@ -29,7 +27,7 @@ export const PROJECTS = [
 
 
 /* =========================================
-   SKILLS (Friends tab)
+   SKILLS 
 ========================================= */
 
 export const SKILLS = {
@@ -97,7 +95,7 @@ export const SKILLS = {
 
 
 /* =========================================
-   SERVICES (Servers tab)
+   SERVICES 
 ========================================= */
 
 export const SERVICES = [

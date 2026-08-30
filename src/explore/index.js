@@ -250,8 +250,7 @@ document.getElementById('tab-next').addEventListener('click', () => cycleTab(1))
 
 
 /* =========================================
-   BACK TO HOME (both the X tab and the
-   bottom-row button do the same thing)
+   BACK TO HOME 
 ========================================= */
 
 function goBackHome() {

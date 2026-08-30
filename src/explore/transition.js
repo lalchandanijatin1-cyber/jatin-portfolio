@@ -1,16 +1,6 @@
 /* =========================================
    IMAGE-RAIN TRANSITION
    Plays only when opening Explore from Home.
-
-   10 images continuously fall from the top of
-   the screen to the bottom for ~5 seconds,
-   then navigates to Explore.
-
-   Place your 10 images at:
-   public/explore/transition/img-1.png
-   public/explore/transition/img-2.png
-   ...
-   public/explore/transition/img-10.png
 ========================================= */
 
 const OVERLAY_ID = 'world-transition-overlay';
