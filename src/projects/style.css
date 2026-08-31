@@ -1,7 +1,37 @@
 /* =========================================
    PROJECTS PAGE STYLING
-   Placeholder only — real styling comes
-   later, once the Projects UI is built.
+========================================= */
+
+:root {
+
+    --panel-bg: #e9e9e9;
+    --panel-border: #ffffff;
+
+    --row-bg: rgba(90, 90, 90, 0.75);
+    --row-bg-hover: rgba(140, 140, 140, 0.85);
+    --row-border: rgba(20, 20, 20, 0.6);
+
+    --content-bg: rgba(20, 20, 20, 0.88);
+    --content-row-bg: rgba(60, 60, 60, 0.75);
+    --content-row-border: rgba(0, 0, 0, 0.4);
+
+    --btn-bg: #b9b9b9;
+    --btn-bg-hover: #cfcfcf;
+    --btn-text: #2a2a2a;
+
+    --skills-btn-bg: #4caf50;
+    --skills-btn-text: #ffffff;
+
+    --text-light: #f2f2f2;
+    --text-muted: #9a9a9a;
+    --text-dark: #2a2a2a;
+
+    --overlay-color: rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================
+   RESET
 ========================================= */
 
 * {
@@ -10,14 +40,514 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
+
     width: 100%;
     height: 100%;
-    background: #0a0a0a;
-    color: #ffffff;
+
+    overflow: hidden;
+
+    background: #000000;
+
     font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#projects {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.projects-video {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+.projects-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    background: var(--overlay-color);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   LIST VIEW
+========================================= */
+
+.list-view {
+
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: clamp(20px, 5vh, 60px) 16px;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.list-view.hidden {
+    display: none;
+}
+
+
+.projects-logo-wrap {
+
+    flex: 0 0 auto;
+
+    margin-bottom: clamp(16px, 4vh, 36px);
+}
+
+
+.projects-logo {
+
+    width: min(460px, 70vw);
+    height: auto;
+
+    display: block;
+}
+
+
+.project-rows {
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    width: min(500px, 90vw);
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding-right: 4px;
+}
+
+
+.project-rows::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-rows::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+}
+
+
+.project-row {
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+
+    color: var(--text-light);
+
+    padding: 16px 0;
+
+    border: 2px solid var(--row-border);
+    background: var(--row-bg);
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.12s ease;
+}
+
+
+.project-row.available:hover {
+    background: var(--row-bg-hover);
+    transform: translateY(-2px);
+}
+
+
+.project-row.available:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+.project-row.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   DETAIL VIEW ("EDIT WORLD"-style)
+========================================= */
+
+.detail-view {
+
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+
+    display: none;
+
     align-items: center;
     justify-content: center;
+
+    padding: 16px;
+}
+
+
+.detail-view.visible {
+    display: flex;
+}
+
+
+.detail-panel {
+
+    width: min(920px, 96vw);
+    height: min(600px, 90vh);
+
+    background: var(--panel-bg);
+    border: 6px solid var(--panel-border);
+    border-radius: 6px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP ROW: title + Give Feedback / Go Back
+========================================= */
+
+.detail-top-row {
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    padding: 12px 16px;
+
+    background: #d4d4d4;
+    border-bottom: 2px solid #c2c2c2;
+}
+
+
+.detail-title {
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: var(--text-dark);
+}
+
+
+.detail-top-buttons {
+
+    display: flex;
+    gap: 8px;
+}
+
+
+.detail-top-btn {
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    padding: 9px 12px;
+
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+
+    background: var(--btn-bg);
+    color: var(--btn-text);
+
+    transition: background 0.15s ease;
+}
+
+
+.detail-top-btn:hover {
+    background: var(--btn-bg-hover);
+}
+
+
+/* =========================================
+   BODY: sidebar + content
+========================================= */
+
+.detail-body {
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    display: flex;
+    gap: 14px;
+
+    padding: 14px;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.detail-sidebar {
+
+    flex: 0 0 min(220px, 34vw);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    min-height: 0;
+}
+
+
+.detail-thumb {
+
+    flex: 0 0 auto;
+
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    border-radius: 3px;
+
+    background: linear-gradient(135deg, #3a6b3a, #274a27);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.skills-heading-btn {
+
+    flex: 0 0 auto;
+
+    background: var(--skills-btn-bg);
+    color: var(--skills-btn-text);
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    padding: 12px 0;
+
+    border-radius: 3px;
+}
+
+
+.skills-scroll {
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    padding-right: 4px;
+}
+
+
+.skills-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.skills-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+}
+
+
+.skill-list-item {
+
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+
+    padding: 8px 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-dark);
+}
+
+
+/* =========================================
+   RIGHT CONTENT
+========================================= */
+
+.detail-content {
+
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    overflow-y: auto;
+}
+
+
+.field-group {
+    flex: 0 0 auto;
+}
+
+
+.field-label {
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #6a6a6a;
+
+    margin-bottom: 8px;
+}
+
+
+.field-value {
+
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--text-dark);
+}
+
+
+.top-skills-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+
+.top-skill-box {
+
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+
+    padding: 12px 6px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: var(--text-dark);
+}
+
+
+.links-row {
+
+    display: flex;
+    gap: 8px;
+}
+
+
+.link-btn {
+
+    flex: 1 1 auto;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 12px 0;
+
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    background: var(--btn-bg);
+    color: var(--btn-text);
+
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+
+    transition: background 0.15s ease, transform 0.12s ease;
+}
+
+
+.link-btn:hover {
+    background: var(--btn-bg-hover);
+    transform: translateY(-1px);
+}
+
+
+.link-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .detail-body {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .detail-sidebar {
+        flex: 0 0 auto;
+    }
+
+    .top-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

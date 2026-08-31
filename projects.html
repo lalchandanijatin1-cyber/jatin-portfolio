@@ -3,11 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECTS — Jatin Lalchandani</title>
+
+    <title>Projects — Jatin Lalchandani</title>
+
+    <link rel="stylesheet" href="/src/projects/style.css">
 </head>
+
 <body>
 
-    <h1>PROJECTS</h1>
+    <main id="projects">
+
+        <!-- =========================================
+             BACKGROUND VIDEO
+             Place your video at:
+             public/projects/background/projects-background.mp4
+        ========================================== -->
+        <video
+            id="projects-video"
+            class="projects-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source src="/projects/background/projects-background.mp4" type="video/mp4">
+        </video>
+
+        <div class="projects-overlay"></div>
+
+        <!-- =========================================
+             LIST VIEW
+        ========================================== -->
+        <section id="projects-list-view" class="list-view">
+
+            <!-- =========================================
+                 TITLE IMAGE
+                 Place your image at:
+                 public/projects/logo/projects.png
+            ========================================== -->
+            <div class="projects-logo-wrap">
+                <img
+                    src="/projects/logo/projects.png"
+                    alt="Projects"
+                    class="projects-logo"
+                >
+            </div>
+
+            <div class="project-rows" id="project-rows"></div>
+
+        </section>
+
+        <!-- =========================================
+             DETAIL VIEW ("EDIT WORLD"-style panel)
+             Hidden until a clickable project is opened.
+        ========================================== -->
+        <section id="project-detail-view" class="detail-view">
+
+            <div class="detail-panel">
+
+                <div class="detail-top-row">
+
+                    <div class="detail-title">PROJECTS</div>
+
+                    <div class="detail-top-buttons">
+
+                        <button class="detail-top-btn" id="give-feedback-btn">
+                            Give Feedback
+                        </button>
+
+                        <button class="detail-top-btn" id="back-to-projects-btn">
+                            Go Back To All Projects
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="detail-body">
+
+                    <!-- LEFT SIDEBAR -->
+                    <aside class="detail-sidebar">
+
+                        <div class="detail-thumb"></div>
+
+                        <div class="skills-heading-btn">SKILLS</div>
+
+                        <div class="skills-scroll" id="skills-scroll"></div>
+
+                    </aside>
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="detail-content">
+
+                        <div class="field-group">
+                            <div class="field-label">Project Name</div>
+                            <div class="field-value" id="project-name-value"></div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field-label">Top Skills</div>
+                            <div class="top-skills-grid" id="top-skills-grid"></div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field-label">Links</div>
+                            <div class="links-row">
+                                <button class="link-btn" id="github-link-btn">GitHub</button>
+                                <button class="link-btn" id="demo-link-btn">Demo</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="/src/projects/index.js"></script>
 
 </body>
 </html>
