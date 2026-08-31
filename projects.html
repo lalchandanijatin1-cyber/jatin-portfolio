@@ -14,6 +14,14 @@
     <main id="projects">
 
         <!-- =========================================
+             CLOSE / BACK TO HOME
+             Visible on both list and detail views.
+        ========================================== -->
+        <button id="close-to-home-btn" class="close-to-home-btn" aria-label="Back to Home">
+            &times;
+        </button>
+
+        <!-- =========================================
              BACKGROUND VIDEO
              Place your video at:
              public/projects/background/projects-background.mp4
@@ -84,7 +92,10 @@
                     <!-- LEFT SIDEBAR -->
                     <aside class="detail-sidebar">
 
-                        <div class="detail-thumb"></div>
+                        <div class="detail-thumb" id="detail-thumb">
+                            <img id="detail-thumb-img" class="detail-thumb-img" alt="">
+                            <div class="detail-thumb-fallback">No photo yet</div>
+                        </div>
 
                         <div class="skills-heading-btn">SKILLS</div>
 

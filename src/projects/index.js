@@ -12,6 +12,8 @@ const listView = document.getElementById('projects-list-view');
 const detailView = document.getElementById('project-detail-view');
 const rowsContainer = document.getElementById('project-rows');
 
+const detailThumb = document.getElementById('detail-thumb');
+const detailThumbImg = document.getElementById('detail-thumb-img');
 const projectNameValue = document.getElementById('project-name-value');
 const topSkillsGrid = document.getElementById('top-skills-grid');
 const skillsScroll = document.getElementById('skills-scroll');
@@ -63,6 +65,13 @@ function openDetail(key) {
         return;
     }
 
+    // Thumbnail: try to load the real photo, fall back gracefully if missing
+    detailThumb.classList.remove('no-image');
+    detailThumbImg.onerror = () => {
+        detailThumb.classList.add('no-image');
+    };
+    detailThumbImg.src = detail.thumbnail;
+
     projectNameValue.textContent = detail.projectName;
 
     topSkillsGrid.innerHTML = '';
@@ -106,6 +115,17 @@ function closeDetail() {
 
 
 backBtn.addEventListener('click', closeDetail);
+
+
+/* =========================================
+   BACK TO HOME
+========================================= */
+
+function goBackHome() {
+    window.location.href = '/home.html';
+}
+
+document.getElementById('close-to-home-btn').addEventListener('click', goBackHome);
 
 
 /* =========================================

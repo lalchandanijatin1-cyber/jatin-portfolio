@@ -29,6 +29,10 @@ export const PROJECT_DETAILS = {
     'digital-rakhi': {
         projectName: 'Digital Rakhi',
 
+        // Place your project photo at:
+        // public/projects/thumbnails/digital-rakhi.jpg
+        thumbnail: '/projects/thumbnails/digital-rakhi.jpg',
+
         topSkills: ['Python', 'Flask', 'Hugging Face', 'JavaScript'],
 
         allSkills: [
@@ -43,6 +47,10 @@ export const PROJECT_DETAILS = {
 
     'stock-price-predictor': {
         projectName: 'stock-price-predictor',
+
+        // Place your project photo at:
+        // public/projects/thumbnails/stock-price-predictor.jpg
+        thumbnail: '/projects/thumbnails/stock-price-predictor.jpg',
 
         topSkills: ['Python', 'Pandas', 'Scikit-learn', 'yFinance'],
 
