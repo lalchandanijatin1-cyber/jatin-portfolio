@@ -6,41 +6,43 @@
 
     <title>Jatin Lalchandani</title>
 
+    <!-- Explore image-rain transition -->
     <link rel="stylesheet" href="/src/explore/transition.css">
-    <link rel="stylesheet" href="/src/transitions/door/door-transition.css">
+
+    <!-- Minecraft-style block wipe transition -->
+    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
+
+    <!-- Home styles -->
     <link rel="stylesheet" href="/src/home/style.css">
 </head>
 
 <body>
 
-    <!-- Used by the Explore image-rain transition. Hidden until
-         the EXPLORE menu item is clicked. -->
+    <!-- =========================================
+         EXPLORE IMAGE-RAIN TRANSITION
+         Used only when EXPLORE is clicked.
+    ========================================== -->
     <div id="world-transition-overlay"></div>
 
+
     <!-- =========================================
-         DOOR TRANSITION (Home stays visible underneath)
+         BLOCK WIPE TRANSITION
+         Used for:
+         PROJECTS
+         SKILLS
+         EXPERIENCE
+         HOBBIES
+         OTHERS
+         WORLD
     ========================================== -->
-    <div id="door-transition-overlay">
+    <div id="block-wipe-overlay"></div>
 
-        <div class="door-dark-layer"></div>
-
-        <div class="door-camera-layer">
-            <div class="door-scene">
-                <img
-                    src="/transitions/door/door.png"
-                    alt=""
-                    class="door-image"
-                >
-            </div>
-        </div>
-
-        <div class="door-label"></div>
-
-    </div>
 
     <main id="home">
 
-        
+        <!-- =========================================
+             BACKGROUND VIDEO
+        ========================================== -->
         <video
             id="home-video"
             class="home-video"
@@ -49,50 +51,104 @@
             loop
             playsinline
         >
-            <source src="/home/background/home-background.mp4" type="video/mp4">
+            <source
+                src="/home/background/home-background.mp4"
+                type="video/mp4"
+            >
         </video>
+
 
         <!-- Dark overlay so menu stays readable over the video -->
         <div class="home-overlay"></div>
 
-        
+
+        <!-- =========================================
+             JATIN LALCHANDANI LOGO
+        ========================================== -->
         <div class="home-logo-wrap">
+
             <img
                 src="/home/logo/jatin-lalchandani.png"
                 alt="Jatin Lalchandani"
                 class="home-logo"
             >
+
         </div>
+
 
         <!-- =========================================
              MAIN MENU
         ========================================== -->
         <nav class="home-menu" aria-label="Main menu">
 
-            <button class="menu-btn" data-target="explore">EXPLORE</button>
+            <button
+                class="menu-btn"
+                data-target="explore"
+            >
+                EXPLORE
+            </button>
 
-            <button class="menu-btn" data-target="projects">PROJECTS</button>
 
-            <button class="menu-btn" data-target="skills">SKILLS</button>
+            <button
+                class="menu-btn"
+                data-target="projects"
+            >
+                PROJECTS
+            </button>
 
-            <button class="menu-btn" data-target="experience">EXPERIENCE</button>
+
+            <button
+                class="menu-btn"
+                data-target="skills"
+            >
+                SKILLS
+            </button>
+
+
+            <button
+                class="menu-btn"
+                data-target="experience"
+            >
+                EXPERIENCE
+            </button>
+
 
             <div class="menu-row">
 
                 <!-- =========================================
                      WORLD ICON
                 ========================================== -->
-                <button class="icon-btn world-icon-btn" data-target="hobbies-icon" aria-label="World">
-                    <img src="/home/icons/world.png" alt="">
+                <button
+                    class="icon-btn world-icon-btn"
+                    data-target="hobbies-icon"
+                    aria-label="World"
+                >
+                    <img
+                        src="/home/icons/world.png"
+                        alt=""
+                    >
                 </button>
 
-                <button class="menu-btn menu-btn-half" data-target="hobbies">HOBBIES</button>
 
-                <button class="menu-btn menu-btn-half" data-target="others">OTHERS</button>
+                <button
+                    class="menu-btn menu-btn-half"
+                    data-target="hobbies"
+                >
+                    HOBBIES
+                </button>
+
+
+                <button
+                    class="menu-btn menu-btn-half"
+                    data-target="others"
+                >
+                    OTHERS
+                </button>
 
             </div>
 
         </nav>
+
 
         <!-- =========================================
              SOCIAL ICONS
@@ -106,8 +162,12 @@
                 class="social-icon"
                 aria-label="LinkedIn"
             >
-                <img src="/home/icons/linkedin.png" alt="LinkedIn">
+                <img
+                    src="/home/icons/linkedin.png"
+                    alt="LinkedIn"
+                >
             </a>
+
 
             <a
                 href="https://github.com/lalchandanijatin1-cyber"
@@ -116,14 +176,22 @@
                 class="social-icon"
                 aria-label="GitHub"
             >
-                <img src="/home/icons/github.png" alt="GitHub">
+                <img
+                    src="/home/icons/github.png"
+                    alt="GitHub"
+                >
             </a>
 
         </div>
 
     </main>
 
-    <script type="module" src="/src/home/index.js"></script>
+
+    <!-- Home controller -->
+    <script
+        type="module"
+        src="/src/home/index.js"
+    ></script>
 
 </body>
 </html>

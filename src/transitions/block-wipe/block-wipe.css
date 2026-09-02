@@ -1,0 +1,86 @@
+/* =========================================
+   BLOCK WIPE TRANSITION STYLING
+   Minecraft-style square block grid, no
+   images/textures required.
+========================================= */
+
+#block-wipe-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 999999;
+
+    display: grid;
+    grid-template-columns: repeat(var(--block-wipe-cols, 10), 1fr);
+    grid-template-rows: repeat(var(--block-wipe-rows, 6), 1fr);
+
+    pointer-events: none;
+    opacity: 0;
+
+    transition: opacity 0.15s ease;
+}
+
+
+#block-wipe-overlay.block-wipe-active {
+    opacity: 1;
+}
+
+
+/* Blocking + the solid fallback fill are tied to "covered"
+   specifically (not just "active"), so the instant JS removes
+   this class to start revealing, clicks pass through again and
+   the flat fill disappears immediately — no waiting on the
+   cell animation or on overlay.remove() to finish. */
+
+#block-wipe-overlay.block-wipe-covered {
+    pointer-events: all;
+
+    /* Solid fallback so there's no flash before JS builds the
+       grid cells — cells then layer their own variant colors
+       on top of this. */
+    background: #222222;
+}
+
+
+.block-wipe-cell {
+
+    opacity: 0;
+    transform: scale(0);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+#block-wipe-overlay.block-wipe-covered .block-wipe-cell {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* Simple palette so the grid reads as textured
+   voxel blocks rather than a flat color field */
+
+.block-wipe-variant-1 { background: #2b2b2b; }
+.block-wipe-variant-2 { background: #3a3a3a; }
+.block-wipe-variant-3 { background: #1e1e1e; }
+.block-wipe-variant-4 { background: #333333; }
+
+
+/* =========================================
+   REDUCED MOTION FALLBACK
+   Plain instant-ish cover, no grid stagger.
+========================================= */
+
+#block-wipe-overlay.block-wipe-reduced-motion {
+    transition: opacity 0.2s ease;
+}
+
+#block-wipe-overlay.block-wipe-reduced-motion .block-wipe-cell {
+    transition: none;
+    opacity: 1;
+    transform: scale(1);
+    background: #0a0a0a;
+}

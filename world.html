@@ -1,13 +1,49 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>WORLD — Jatin Lalchandani</title>
+
+    <!-- Block Wipe Transition -->
+    <link
+        rel="stylesheet"
+        href="/src/transitions/block-wipe/block-wipe.css"
+    >
 </head>
+
 <body>
+
+    <!-- =========================================
+         BLOCK WIPE ARRIVAL TRANSITION
+
+         Starts fully covered and disperses
+         to reveal the World page.
+    ========================================== -->
+    <div
+        id="block-wipe-overlay"
+        class="block-wipe-active block-wipe-covered"
+    ></div>
+
 
     <h1>WORLD</h1>
 
+
+    <!-- =========================================
+         BLOCK WIPE CONTROLLER
+    ========================================== -->
+    <script type="module">
+
+        import {
+            BlockWipeTransition
+        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+
+        BlockWipeTransition.revealIn();
+
+    </script>
+
 </body>
 </html>
+```

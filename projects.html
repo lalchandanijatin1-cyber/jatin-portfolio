@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,27 @@
 
     <title>Projects — Jatin Lalchandani</title>
 
+    <!-- Block Wipe Transition -->
+    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
+
+    <!-- Projects Styles -->
     <link rel="stylesheet" href="/src/projects/style.css">
 </head>
 
 <body>
+
+    <!-- =========================================
+         BLOCK WIPE TRANSITION
+         
+         Starts fully covered when arriving
+         from Home, then revealIn() removes
+         the blocks to reveal this page.
+    ========================================== -->
+    <div
+        id="block-wipe-overlay"
+        class="block-wipe-active block-wipe-covered"
+    ></div>
+
 
     <main id="projects">
 
@@ -17,14 +35,17 @@
              CLOSE / BACK TO HOME
              Visible on both list and detail views.
         ========================================== -->
-        <button id="close-to-home-btn" class="close-to-home-btn" aria-label="Back to Home">
+        <button
+            id="close-to-home-btn"
+            class="close-to-home-btn"
+            aria-label="Back to Home"
+        >
             &times;
         </button>
 
+
         <!-- =========================================
              BACKGROUND VIDEO
-             Place your video at:
-             public/projects/background/projects-background.mp4
         ========================================== -->
         <video
             id="projects-video"
@@ -34,52 +55,75 @@
             loop
             playsinline
         >
-            <source src="/projects/background/projects-background.mp4" type="video/mp4">
+            <source
+                src="/projects/background/projects-background.mp4"
+                type="video/mp4"
+            >
         </video>
 
         <div class="projects-overlay"></div>
 
+
         <!-- =========================================
              LIST VIEW
         ========================================== -->
-        <section id="projects-list-view" class="list-view">
+        <section
+            id="projects-list-view"
+            class="list-view"
+        >
 
             <!-- =========================================
                  TITLE IMAGE
-                 Place your image at:
-                 public/projects/logo/projects.png
             ========================================== -->
             <div class="projects-logo-wrap">
+
                 <img
                     src="/projects/logo/projects.png"
                     alt="Projects"
                     class="projects-logo"
                 >
+
             </div>
 
-            <div class="project-rows" id="project-rows"></div>
+            <div
+                class="project-rows"
+                id="project-rows"
+            ></div>
 
         </section>
 
+
         <!-- =========================================
-             DETAIL VIEW ("EDIT WORLD"-style panel)
-             Hidden until a clickable project is opened.
+             DETAIL VIEW
+             Hidden until a clickable project
+             is opened.
         ========================================== -->
-        <section id="project-detail-view" class="detail-view">
+        <section
+            id="project-detail-view"
+            class="detail-view"
+        >
 
             <div class="detail-panel">
 
                 <div class="detail-top-row">
 
-                    <div class="detail-title">PROJECTS</div>
+                    <div class="detail-title">
+                        PROJECTS
+                    </div>
 
                     <div class="detail-top-buttons">
 
-                        <button class="detail-top-btn" id="give-feedback-btn">
+                        <button
+                            class="detail-top-btn"
+                            id="give-feedback-btn"
+                        >
                             Give Feedback
                         </button>
 
-                        <button class="detail-top-btn" id="back-to-projects-btn">
+                        <button
+                            class="detail-top-btn"
+                            id="back-to-projects-btn"
+                        >
                             Go Back To All Projects
                         </button>
 
@@ -87,41 +131,102 @@
 
                 </div>
 
+
                 <div class="detail-body">
 
-                    <!-- LEFT SIDEBAR -->
+                    <!-- =========================================
+                         LEFT SIDEBAR
+                    ========================================== -->
                     <aside class="detail-sidebar">
 
-                        <div class="detail-thumb" id="detail-thumb">
-                            <img id="detail-thumb-img" class="detail-thumb-img" alt="">
-                            <div class="detail-thumb-fallback">No photo yet</div>
+                        <div
+                            class="detail-thumb"
+                            id="detail-thumb"
+                        >
+
+                            <img
+                                id="detail-thumb-img"
+                                class="detail-thumb-img"
+                                alt=""
+                            >
+
+                            <div class="detail-thumb-fallback">
+                                No photo yet
+                            </div>
+
                         </div>
 
-                        <div class="skills-heading-btn">SKILLS</div>
 
-                        <div class="skills-scroll" id="skills-scroll"></div>
+                        <div class="skills-heading-btn">
+                            SKILLS
+                        </div>
+
+
+                        <div
+                            class="skills-scroll"
+                            id="skills-scroll"
+                        ></div>
 
                     </aside>
 
-                    <!-- RIGHT CONTENT -->
+
+                    <!-- =========================================
+                         RIGHT CONTENT
+                    ========================================== -->
                     <div class="detail-content">
 
                         <div class="field-group">
-                            <div class="field-label">Project Name</div>
-                            <div class="field-value" id="project-name-value"></div>
-                        </div>
 
-                        <div class="field-group">
-                            <div class="field-label">Top Skills</div>
-                            <div class="top-skills-grid" id="top-skills-grid"></div>
-                        </div>
-
-                        <div class="field-group">
-                            <div class="field-label">Links</div>
-                            <div class="links-row">
-                                <button class="link-btn" id="github-link-btn">GitHub</button>
-                                <button class="link-btn" id="demo-link-btn">Demo</button>
+                            <div class="field-label">
+                                Project Name
                             </div>
+
+                            <div
+                                class="field-value"
+                                id="project-name-value"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field-group">
+
+                            <div class="field-label">
+                                Top Skills
+                            </div>
+
+                            <div
+                                class="top-skills-grid"
+                                id="top-skills-grid"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="field-group">
+
+                            <div class="field-label">
+                                Links
+                            </div>
+
+                            <div class="links-row">
+
+                                <button
+                                    class="link-btn"
+                                    id="github-link-btn"
+                                >
+                                    GitHub
+                                </button>
+
+                                <button
+                                    class="link-btn"
+                                    id="demo-link-btn"
+                                >
+                                    Demo
+                                </button>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -134,7 +239,21 @@
 
     </main>
 
-    <script type="module" src="/src/projects/index.js"></script>
+
+    <!-- Projects controller -->
+    <script
+        type="module"
+        src="/src/projects/index.js"
+    ></script>
+
+
+    <!-- Block Wipe controller -->
+    <script type="module">
+        import { BlockWipeTransition } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+
+        BlockWipeTransition.revealIn();
+    </script>
 
 </body>
 </html>
+

@@ -1,57 +1,88 @@
+
 /* =========================================
    HOME PAGE LOGIC
    Independent from Opening. Handles:
-   - Menu button clicks — every item now
-     navigates somewhere real.
-   - World icon click — navigates to world.html
+   - Menu button clicks
+   - Explore → Image-rain transition
+   - Projects / Skills / Experience /
+     Hobbies / Others → Block-wipe transition
+   - World icon → Block-wipe transition
 ========================================= */
 
 import { playImageRainTransition } from '../explore/transition.js';
-import { DoorTransition } from '../transitions/door/DoorTransition.js';
+import { BlockWipeTransition } from '../transitions/block-wipe/BlockWipeTransition.js';
+
 
 const menuButtons = document.querySelectorAll('.menu-btn');
 const worldIconBtn = document.querySelector('.world-icon-btn');
 
 
 /* =========================================
-   Pages that open via the door transition,
-   each with its own label text.
+   PAGES THAT OPEN VIA BLOCK WIPE
 ========================================= */
 
-const DOOR_PAGES = {
-    projects: { url: '/projects.html', label: 'ENTERING PROJECTS...' },
-    skills: { url: '/skills.html', label: 'ENTERING SKILLS...' },
-    experience: { url: '/experience.html', label: 'ENTERING EXPERIENCE...' },
-    hobbies: { url: '/hobbies.html', label: 'ENTERING HOBBIES...' },
-    others: { url: '/others.html', label: 'ENTERING OTHERS...' }
+const BLOCK_WIPE_PAGES = {
+
+    projects: '/projects.html',
+
+    skills: '/skills.html',
+
+    experience: '/experience.html',
+
+    hobbies: '/hobbies.html',
+
+    others: '/others.html'
+
 };
 
 
 /* =========================================
    MENU CLICK HANDLER
 
-   EXPLORE → image-rain transition
-   Everything else with a door-page entry
-   → door transition
+   EXPLORE
+       → Image-rain transition
+
+   PROJECTS / SKILLS / EXPERIENCE /
+   HOBBIES / OTHERS
+       → Block-wipe transition
 ========================================= */
 
 function handleMenuClick(target) {
 
+    /* -----------------------------------------
+       EXPLORE
+       Keep existing image-rain transition
+    ----------------------------------------- */
+
     if (target === 'explore') {
+
         playImageRainTransition('/explore.html');
+
         return;
     }
 
-    const doorPage = DOOR_PAGES[target];
 
-    if (doorPage) {
-        DoorTransition.transitionTo(doorPage.url, { label: doorPage.label });
+    /* -----------------------------------------
+       BLOCK WIPE PAGES
+    ----------------------------------------- */
+
+    const blockWipeUrl = BLOCK_WIPE_PAGES[target];
+
+    if (blockWipeUrl) {
+
+        BlockWipeTransition.transitionTo(blockWipeUrl);
+
         return;
     }
+
 
     console.log(`Menu clicked: ${target} (no page mapped)`);
 }
 
+
+/* =========================================
+   MENU BUTTON LISTENERS
+========================================= */
 
 menuButtons.forEach(btn => {
 
@@ -60,18 +91,24 @@ menuButtons.forEach(btn => {
         const target = btn.dataset.target;
 
         handleMenuClick(target);
+
     });
+
 });
 
 
 /* =========================================
    WORLD ICON CLICK HANDLER
+
+   World → Block-wipe transition
 ========================================= */
 
 if (worldIconBtn) {
 
     worldIconBtn.addEventListener('click', () => {
 
-        window.location.href = '/world.html';
+        BlockWipeTransition.transitionTo('/world.html');
+
     });
+
 }
