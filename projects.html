@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +6,21 @@
 
     <title>Projects — Jatin Lalchandani</title>
 
-    <!-- Block Wipe Transition -->
-    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
+    <link
+        rel="stylesheet"
+        href="/src/transitions/block-wipe/block-wipe.css"
+    >
 
-    <!-- Projects Styles -->
-    <link rel="stylesheet" href="/src/projects/style.css">
+    <link
+        rel="stylesheet"
+        href="/src/projects/style.css"
+    >
 </head>
 
 <body>
 
     <!-- =========================================
          BLOCK WIPE TRANSITION
-         
-         Starts fully covered when arriving
-         from Home, then revealIn() removes
-         the blocks to reveal this page.
     ========================================== -->
     <div
         id="block-wipe-overlay"
@@ -29,24 +28,13 @@
     ></div>
 
 
+    <!-- =========================================
+         PROJECTS PAGE
+    ========================================== -->
     <main id="projects">
 
-        <!-- =========================================
-             CLOSE / BACK TO HOME
-             Visible on both list and detail views.
-        ========================================== -->
-        <button
-            id="close-to-home-btn"
-            class="close-to-home-btn"
-            aria-label="Back to Home"
-        >
-            &times;
-        </button>
-
-
-        <!-- =========================================
-             BACKGROUND VIDEO
-        ========================================== -->
+        <!-- Background video stays throughout
+             every Projects screen -->
         <video
             id="projects-video"
             class="projects-video"
@@ -65,164 +53,230 @@
 
 
         <!-- =========================================
-             LIST VIEW
+             TOP BAR
+        ========================================== -->
+        <header class="projects-header">
+
+            <button
+                id="close-to-home-btn"
+                class="close-to-home-btn"
+                aria-label="Back to Home"
+            >
+                ×
+            </button>
+
+            <div class="projects-header-title">
+                PROJECTS
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             CATEGORY VIEW
         ========================================== -->
         <section
-            id="projects-list-view"
-            class="list-view"
+            id="category-view"
+            class="projects-screen active-screen"
         >
 
-            <!-- =========================================
-                 TITLE IMAGE
-            ========================================== -->
-            <div class="projects-logo-wrap">
-
+            <div class="projects-title-wrap">
                 <img
                     src="/projects/logo/projects.png"
                     alt="Projects"
                     class="projects-logo"
                 >
-
             </div>
 
             <div
-                class="project-rows"
-                id="project-rows"
+                id="category-grid"
+                class="category-grid"
+            ></div>
+
+            <a
+                class="all-projects-github"
+                href="https://github.com/lalchandanijatin1-cyber"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                VIEW ALL PROJECTS ON GITHUB
+            </a>
+
+        </section>
+
+
+        <!-- =========================================
+             PROJECT LIST VIEW
+        ========================================== -->
+        <section
+            id="project-list-view"
+            class="projects-screen"
+        >
+
+            <button
+                id="back-to-categories-btn"
+                class="minecraft-back-btn"
+            >
+                ← BACK TO CATEGORIES
+            </button>
+
+            <h1
+                id="category-title"
+                class="section-title"
+            >
+                ROBOTICS & HARDWARE
+            </h1>
+
+            <div
+                id="project-grid"
+                class="project-grid"
             ></div>
 
         </section>
 
 
         <!-- =========================================
-             DETAIL VIEW
-             Hidden until a clickable project
-             is opened.
+             PROJECT DETAIL VIEW
         ========================================== -->
         <section
             id="project-detail-view"
-            class="detail-view"
+            class="projects-screen"
         >
+
+            <button
+                id="back-to-projects-btn"
+                class="minecraft-back-btn"
+            >
+                ← BACK TO PROJECTS
+            </button>
 
             <div class="detail-panel">
 
-                <div class="detail-top-row">
+                <div class="detail-heading-row">
 
-                    <div class="detail-title">
-                        PROJECTS
+                    <div>
+                        <div class="detail-small-title">
+                            PROJECT
+                        </div>
+
+                        <h1
+                            id="detail-project-name"
+                            class="detail-project-name"
+                        >
+                            PROJECT NAME
+                        </h1>
                     </div>
 
-                    <div class="detail-top-buttons">
-
-                        <button
-                            class="detail-top-btn"
-                            id="give-feedback-btn"
-                        >
-                            Give Feedback
-                        </button>
-
-                        <button
-                            class="detail-top-btn"
-                            id="back-to-projects-btn"
-                        >
-                            Go Back To All Projects
-                        </button>
-
-                    </div>
+                    <div
+                        id="detail-status"
+                        class="detail-status"
+                    ></div>
 
                 </div>
 
 
-                <div class="detail-body">
+                <div class="detail-main">
 
-                    <!-- =========================================
-                         LEFT SIDEBAR
-                    ========================================== -->
-                    <aside class="detail-sidebar">
+                    <!-- LEFT -->
+                    <div class="detail-left">
 
-                        <div
-                            class="detail-thumb"
-                            id="detail-thumb"
-                        >
+                        <div class="detail-image-frame">
 
                             <img
-                                id="detail-thumb-img"
-                                class="detail-thumb-img"
+                                id="detail-project-image"
+                                src=""
                                 alt=""
                             >
 
-                            <div class="detail-thumb-fallback">
-                                No photo yet
+                            <div
+                                id="detail-image-placeholder"
+                                class="detail-image-placeholder"
+                            >
+                                PROJECT
                             </div>
 
                         </div>
 
+                        <div class="detail-skills-title">
+                            ALL SKILLS
+                        </div>
 
-                        <div class="skills-heading-btn">
-                            SKILLS
+                        <div
+                            id="detail-all-skills"
+                            class="detail-skills"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- RIGHT -->
+                    <div class="detail-right">
+
+                        <div class="detail-field">
+
+                            <div class="detail-label">
+                                PROJECT NAME
+                            </div>
+
+                            <div
+                                id="detail-name-value"
+                                class="detail-value"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="detail-field">
+
+                            <div class="detail-label">
+                                SHORT DESCRIPTION
+                            </div>
+
+                            <p
+                                id="detail-description"
+                                class="detail-description"
+                            ></p>
+
+                        </div>
+
+
+                        <div class="detail-field">
+
+                            <div class="detail-label">
+                                TOP SKILLS
+                            </div>
+
+                            <div
+                                id="detail-top-skills"
+                                class="top-skills"
+                            ></div>
+
                         </div>
 
 
                         <div
-                            class="skills-scroll"
-                            id="skills-scroll"
-                        ></div>
+                            id="detail-links-section"
+                            class="detail-field"
+                        >
 
-                    </aside>
-
-
-                    <!-- =========================================
-                         RIGHT CONTENT
-                    ========================================== -->
-                    <div class="detail-content">
-
-                        <div class="field-group">
-
-                            <div class="field-label">
-                                Project Name
+                            <div class="detail-label">
+                                LINKS
                             </div>
 
-                            <div
-                                class="field-value"
-                                id="project-name-value"
-                            ></div>
-
-                        </div>
-
-
-                        <div class="field-group">
-
-                            <div class="field-label">
-                                Top Skills
-                            </div>
-
-                            <div
-                                class="top-skills-grid"
-                                id="top-skills-grid"
-                            ></div>
-
-                        </div>
-
-
-                        <div class="field-group">
-
-                            <div class="field-label">
-                                Links
-                            </div>
-
-                            <div class="links-row">
+                            <div class="detail-links">
 
                                 <button
-                                    class="link-btn"
-                                    id="github-link-btn"
+                                    id="detail-github-btn"
+                                    class="detail-link-btn"
                                 >
-                                    GitHub
+                                    GITHUB
                                 </button>
 
                                 <button
-                                    class="link-btn"
-                                    id="demo-link-btn"
+                                    id="detail-demo-btn"
+                                    class="detail-link-btn"
                                 >
-                                    Demo
+                                    LIVE DEMO
                                 </button>
 
                             </div>
@@ -232,6 +286,42 @@
                     </div>
 
                 </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             COMING SOON VIEW
+             Used for projects/categories without
+             complete data yet.
+        ========================================== -->
+        <section
+            id="coming-soon-view"
+            class="projects-screen"
+        >
+
+            <button
+                id="back-from-coming-soon-btn"
+                class="minecraft-back-btn"
+            >
+                ← BACK
+            </button>
+
+            <div class="coming-soon-panel">
+
+                <div class="coming-soon-icon">
+                    ⚒
+                </div>
+
+                <h1>
+                    COMING SOON
+                </h1>
+
+                <p id="coming-soon-name">
+                    MORE INFORMATION WILL BE ADDED SOON.
+                </p>
 
             </div>
 
@@ -247,13 +337,16 @@
     ></script>
 
 
-    <!-- Block Wipe controller -->
+    <!-- Block wipe controller -->
     <script type="module">
-        import { BlockWipeTransition } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+
+        import {
+            BlockWipeTransition
+        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
 
         BlockWipeTransition.revealIn();
+
     </script>
 
 </body>
 </html>
-
