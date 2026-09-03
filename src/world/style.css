@@ -1,0 +1,1248 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        "Space Grotesk",
+        Arial,
+        sans-serif;
+
+    color: #fff;
+}
+
+
+body {
+    user-select: none;
+}
+
+
+#world {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* =====================================================
+   CANVAS
+===================================================== */
+
+#world-canvas {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    z-index: 1;
+
+    cursor: crosshair;
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.world-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #050807;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+.world-loader.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.loader-inner {
+
+    width:
+        min(600px, 85vw);
+
+    text-align: center;
+}
+
+
+.loader-small {
+
+    margin-bottom: 18px;
+
+    color: #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+}
+
+
+.loader-title {
+
+    margin-bottom: 24px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(28px, 5vw, 52px);
+
+    font-weight: 900;
+}
+
+
+.loader-bar {
+
+    width: 100%;
+
+    height: 18px;
+
+    background: #111;
+
+    border: 3px solid #fff;
+
+    box-shadow:
+        6px 6px 0 #000;
+}
+
+
+.loader-progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #b7f7c5;
+
+    transition:
+        width 0.4s ease;
+}
+
+
+.loader-percent {
+
+    margin-top: 12px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 13px;
+
+    color: #b7f7c5;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.world-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        22px 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+
+.world-brand {
+
+    pointer-events: none;
+
+    text-shadow:
+        4px 4px 0 #000;
+}
+
+
+.world-brand-small {
+
+    color: #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+.world-brand-main {
+
+    margin-top: 2px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(24px, 3vw, 38px);
+
+    font-weight: 900;
+}
+
+
+.close-to-home-btn {
+
+    width: 55px;
+    height: 55px;
+
+    pointer-events: auto;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    color: #fff;
+
+    border: 4px solid #fff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        6px 6px 0 #000;
+
+    transition:
+        0.15s ease;
+}
+
+
+.close-to-home-btn:hover {
+
+    background: #b7f7c5;
+
+    color: #000;
+
+    transform:
+        translate(-3px, -3px);
+}
+
+
+/* =====================================================
+   WORLD INTRO
+===================================================== */
+
+.world-intro {
+
+    position: fixed;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 20;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    text-shadow:
+        5px 5px 0 #000;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.world-intro.hidden {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -54%);
+
+}
+
+
+.world-intro-label {
+
+    color: #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+}
+
+
+.world-intro-title {
+
+    margin-top: 8px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(38px, 7vw, 82px);
+
+    font-weight: 900;
+}
+
+
+.world-intro-description {
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   CONTROLS HUD
+===================================================== */
+
+.controls-hud {
+
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 12px 15px;
+
+    background:
+        rgba(0, 0, 0, 0.72);
+
+    border:
+        3px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+}
+
+
+.control-line {
+
+    display: flex;
+
+    gap: 9px;
+
+    align-items: center;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+}
+
+
+.control-line span {
+
+    color: #b7f7c5;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+
+.control-line small {
+
+    color: #fff;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   INTERACTION PROMPT
+===================================================== */
+
+.interaction-prompt {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 55px;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+    z-index: 70;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        11px 15px;
+
+    background:
+        rgba(0, 0, 0, 0.86);
+
+    border:
+        3px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        0.18s ease;
+}
+
+
+.interaction-prompt.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.interaction-key {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #b7f7c5;
+
+    color: #000;
+
+    border:
+        2px solid #fff;
+
+    font-weight: 900;
+}
+
+
+#interaction-text {
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   LOCATION PANEL
+===================================================== */
+
+.location-panel {
+
+    position: fixed;
+
+    top: 50%;
+    right: 35px;
+
+    transform:
+        translateY(-50%)
+        translateX(40px);
+
+    width:
+        min(430px, 90vw);
+
+    max-height: 82vh;
+
+    overflow-y: auto;
+
+    z-index: 150;
+
+    padding: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.91);
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        9px 9px 0 #000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        0.22s ease;
+}
+
+
+.location-panel.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+
+.location-close {
+
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+
+    background: #000;
+
+    color: #fff;
+
+    border:
+        3px solid #fff;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+.location-close:hover {
+
+    background: #b7f7c5;
+
+    color: #000;
+}
+
+
+.location-type {
+
+    margin-bottom: 8px;
+
+    color: #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: 800;
+}
+
+
+#location-title {
+
+    padding-right: 50px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(28px, 5vw, 45px);
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+.location-line {
+
+    width: 75px;
+
+    height: 4px;
+
+    margin:
+        20px 0;
+
+    background: #b7f7c5;
+}
+
+
+#location-description {
+
+    color: #ddd;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+.location-details {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+
+.location-detail {
+
+    padding:
+        8px 10px;
+
+    background: #111;
+
+    color: #b7f7c5;
+
+    border:
+        2px solid #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.location-action {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding:
+        14px 18px;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #b7f7c5;
+
+    color: #000;
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        0.15s ease;
+}
+
+
+.location-action:hover {
+
+    transform:
+        translate(-3px, -3px);
+
+    box-shadow:
+        8px 8px 0 #000;
+}
+
+
+/* =====================================================
+   MINIMAP
+===================================================== */
+
+.minimap {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 185px;
+
+    z-index: 50;
+
+    padding: 10px;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    border:
+        3px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+}
+
+
+.minimap-title {
+
+    margin-bottom: 8px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 11px;
+
+    color: #b7f7c5;
+
+    letter-spacing: 2px;
+}
+
+
+.minimap-world {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 135px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1c3025,
+            #101c18
+        );
+
+    border:
+        2px solid #555;
+}
+
+
+.minimap-world::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.35;
+
+    background-image:
+        linear-gradient(
+            #53665b 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            #53665b 1px,
+            transparent 1px
+        );
+
+    background-size:
+        20px 20px;
+}
+
+
+.map-point {
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 2;
+}
+
+
+.map-point span {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background: #b7f7c5;
+
+    border:
+        1px solid #fff;
+
+    box-shadow:
+        0 0 7px #b7f7c5;
+}
+
+
+.base-point {
+    left: 50%;
+    top: 50%;
+}
+
+
+.robotics-point {
+    left: 33%;
+    top: 38%;
+}
+
+
+.ai-point {
+    left: 68%;
+    top: 36%;
+}
+
+
+.web-point {
+    left: 69%;
+    top: 61%;
+}
+
+
+.electronics-point {
+    left: 31%;
+    top: 62%;
+}
+
+
+.library-point {
+    left: 50%;
+    top: 27%;
+}
+
+
+.creative-point {
+    left: 50%;
+    top: 73%;
+}
+
+
+.future-point {
+    left: 50%;
+    top: 91%;
+}
+
+
+.player-map-point {
+
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    border:
+        2px solid #000;
+
+    box-shadow:
+        0 0 8px #fff;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   WORLD STATUS
+===================================================== */
+
+.world-status {
+
+    position: fixed;
+
+    top: 100px;
+    left: 28px;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 11px;
+
+    background:
+        rgba(0, 0, 0, 0.62);
+
+    border:
+        2px solid rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    background: #b7f7c5;
+
+    box-shadow:
+        0 0 8px #b7f7c5;
+
+    animation:
+        pulse 1.5s infinite;
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE CONTROLS
+===================================================== */
+
+.mobile-controls {
+
+    display: none;
+
+    position: fixed;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 80;
+}
+
+
+.mobile-row {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+}
+
+
+.mobile-controls button {
+
+    width: 45px;
+    height: 45px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    color: #fff;
+
+    border:
+        3px solid #fff;
+
+    box-shadow:
+        4px 4px 0 #000;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-weight: 900;
+
+    touch-action: none;
+}
+
+
+.mobile-controls button:active {
+
+    background: #b7f7c5;
+
+    color: #000;
+
+    transform:
+        translate(2px, 2px);
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.location-panel::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+
+.location-panel::-webkit-scrollbar-track {
+
+    background: #000;
+}
+
+
+.location-panel::-webkit-scrollbar-thumb {
+
+    background: #b7f7c5;
+
+    border:
+        2px solid #000;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .minimap {
+
+        width: 155px;
+
+    }
+
+    .controls-hud {
+
+        display: none;
+
+    }
+
+    .mobile-controls {
+
+        display: block;
+
+    }
+
+    .interaction-prompt {
+
+        bottom: 105px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .world-header {
+
+        padding:
+            15px;
+
+    }
+
+
+    .close-to-home-btn {
+
+        width: 48px;
+        height: 48px;
+
+        font-size: 32px;
+
+    }
+
+
+    .world-status {
+
+        top: 78px;
+        left: 15px;
+
+    }
+
+
+    .minimap {
+
+        top: 78px;
+        right: 15px;
+
+        width: 125px;
+
+        padding: 7px;
+
+    }
+
+
+    .minimap-world {
+
+        height: 90px;
+
+    }
+
+
+    .minimap-title {
+
+        font-size: 8px;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .world-intro-title {
+
+        font-size:
+            clamp(
+                32px,
+                10vw,
+                55px
+            );
+
+    }
+
+
+    .world-intro-description {
+
+        font-size: 13px;
+
+    }
+
+
+    .location-panel {
+
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+
+        width: auto;
+
+        max-height: 65vh;
+
+        transform:
+            translateY(30px);
+
+    }
+
+
+    .location-panel.visible {
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    .interaction-prompt {
+
+        bottom: 95px;
+
+    }
+
+}

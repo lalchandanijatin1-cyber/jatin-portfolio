@@ -1,49 +1,360 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>OTHERS — Jatin Lalchandani</title>
+    <title>Others — Jatin Lalchandani</title>
 
-    <!-- Block Wipe Transition -->
-    <link
-        rel="stylesheet"
-        href="/src/transitions/block-wipe/block-wipe.css"
-    >
+    <link rel="stylesheet" href="/src/others/style.css">
 </head>
 
 <body>
 
-    <!-- =========================================
-         BLOCK WIPE ARRIVAL TRANSITION
-         
-         Starts fully covered and disperses
-         to reveal the Others page.
-    ========================================== -->
-    <div
-        id="block-wipe-overlay"
-        class="block-wipe-active block-wipe-covered"
-    ></div>
+<main id="others">
+
+    <!-- Background Video -->
+    <video
+        id="others-video"
+        class="others-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source
+            src="/others/background/others-background.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+    <div class="others-overlay"></div>
 
 
-    <h1>OTHERS</h1>
+    <!-- Header -->
+    <header class="others-header">
+
+        <button
+            id="close-to-home-btn"
+            class="close-to-home-btn"
+            aria-label="Back to Home"
+        >
+            ×
+        </button>
+
+    </header>
 
 
-    <!-- =========================================
-         BLOCK WIPE CONTROLLER
-    ========================================== -->
-    <script type="module">
+    <!-- =========================
+         MAIN VIEW
+    ========================== -->
 
-        import {
-            BlockWipeTransition
-        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+    <section
+        id="others-main-view"
+        class="others-screen active-screen"
+    >
 
-        BlockWipeTransition.revealIn();
+        <!-- Logo -->
+        <div class="others-title-wrap">
 
-    </script>
+            <img
+                src="/others/logo/others.png"
+                alt="Others"
+                class="others-logo"
+            >
+
+        </div>
+
+
+        <!-- Cards -->
+        <div class="others-card-grid">
+
+            <!-- RESUME -->
+
+            <article
+                id="resume-card"
+                class="others-card"
+                tabindex="0"
+            >
+
+                <div class="others-card-image-frame">
+
+                    <img
+                        src="/others/resume/resume.jpg"
+                        alt="Resume"
+                        class="others-card-image"
+                    >
+
+                </div>
+
+                <div class="others-card-name">
+                    RESUME
+                </div>
+
+            </article>
+
+
+            <!-- ALL LINKS -->
+
+            <article
+                id="all-links-card"
+                class="others-card"
+                tabindex="0"
+            >
+
+                <div class="others-card-image-frame">
+
+                    <img
+                        src="/others/links/links.jpg"
+                        alt="All Links"
+                        class="others-card-image"
+                    >
+
+                </div>
+
+                <div class="others-card-name">
+                    ALL LINKS
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESUME VIEW
+    ========================== -->
+
+    <section
+        id="resume-detail-view"
+        class="others-screen"
+    >
+
+        <button
+            id="back-from-resume-btn"
+            class="minecraft-back-btn"
+        >
+            ← BACK TO OTHERS
+        </button>
+
+
+        <div class="resume-panel">
+
+            <div class="resume-heading">
+
+                <div class="others-small-title">
+                    DOCUMENT
+                </div>
+
+                <h1>
+                    JATIN LALCHANDANI
+                </h1>
+
+                <p>
+                    RESUME
+                </p>
+
+            </div>
+
+
+            <div class="resume-preview">
+
+                <iframe
+                    src="/others/resume/Jatin-Lalchandani-Resume.pdf"
+                    title="Jatin Lalchandani Resume"
+                >
+                </iframe>
+
+            </div>
+
+
+            <div class="resume-actions">
+
+                <a
+                    href="/others/resume/Jatin-Lalchandani-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="resume-view-btn"
+                >
+                    📄 VIEW FULL RESUME
+                </a>
+
+
+                <a
+                    href="/others/resume/Jatin-Lalchandani-Resume.pdf"
+                    download
+                    class="resume-download-btn"
+                >
+                    ↓ DOWNLOAD RESUME
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ALL LINKS VIEW
+    ========================== -->
+
+    <section
+        id="all-links-detail-view"
+        class="others-screen"
+    >
+
+        <button
+            id="back-from-links-btn"
+            class="minecraft-back-btn"
+        >
+            ← BACK TO OTHERS
+        </button>
+
+
+        <div class="links-panel">
+
+            <div class="links-heading">
+
+                <div class="others-small-title">
+                    CONNECT
+                </div>
+
+                <h1>
+                    ALL LINKS
+                </h1>
+
+                <p>
+                    FIND ME ACROSS THE INTERNET
+                </p>
+
+            </div>
+
+
+            <div class="links-grid">
+
+                <!-- GitHub -->
+
+                <a
+                    href="https://github.com/lalchandanijatin1-cyber"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card"
+                >
+
+                    <span class="link-name">
+                        GITHUB
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- LinkedIn -->
+
+                <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card"
+                >
+
+                    <span class="link-name">
+                        LINKEDIN
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- Medium -->
+
+                <a
+                    href="https://medium.com/@lalchandani.jatin1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card"
+                >
+
+                    <span class="link-name">
+                        MEDIUM
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- DEV -->
+
+                <a
+                    href="https://dev.to/jatin_lalchandani_a612ed3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-card"
+                >
+
+                    <span class="link-name">
+                        DEV.TO
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- Email -->
+
+                <a
+                    href="mailto:"
+                    class="link-card"
+                >
+
+                    <span class="link-name">
+                        EMAIL
+                    </span>
+
+                    <span class="link-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     GLOBAL PORTFOLIO MUSIC
+========================================== -->
+
+<script
+    type="module"
+    src="/src/music/music.js"
+></script>
+
+
+<script
+    type="module"
+    src="/src/others/index.js"
+></script>
 
 </body>
 </html>
-```

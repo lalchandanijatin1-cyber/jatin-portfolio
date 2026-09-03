@@ -12,7 +12,31 @@
 import { playImageRainTransition } from '../explore/transition.js';
 import { BlockWipeTransition } from '../transitions/block-wipe/BlockWipeTransition.js';
 
+/* =========================================
+   BACKGROUND MUSIC
+========================================= */
 
+const backgroundMusic = new Audio('/audio/background-music.mp3');
+
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.35;
+
+
+/* =========================================
+   START MUSIC AFTER USER INTERACTION
+========================================= */
+
+function startBackgroundMusic() {
+
+    backgroundMusic.play().catch(() => {
+        console.log('Music playback was blocked by the browser.');
+    });
+
+}
+
+document.addEventListener('click', startBackgroundMusic, {
+    once: true
+});
 const menuButtons = document.querySelectorAll('.menu-btn');
 const worldIconBtn = document.querySelector('.world-icon-btn');
 

@@ -7,33 +7,34 @@
     <title>Jatin Lalchandani</title>
 
     <!-- Explore image-rain transition -->
-    <link rel="stylesheet" href="/src/explore/transition.css">
+    <link
+        rel="stylesheet"
+        href="/src/explore/transition.css"
+    >
 
     <!-- Minecraft-style block wipe transition -->
-    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
+    <link
+        rel="stylesheet"
+        href="/src/transitions/block-wipe/block-wipe.css"
+    >
 
     <!-- Home styles -->
-    <link rel="stylesheet" href="/src/home/style.css">
+    <link
+        rel="stylesheet"
+        href="/src/home/style.css"
+    >
 </head>
 
 <body>
 
     <!-- =========================================
          EXPLORE IMAGE-RAIN TRANSITION
-         Used only when EXPLORE is clicked.
     ========================================== -->
     <div id="world-transition-overlay"></div>
 
 
     <!-- =========================================
          BLOCK WIPE TRANSITION
-         Used for:
-         PROJECTS
-         SKILLS
-         EXPERIENCE
-         HOBBIES
-         OTHERS
-         WORLD
     ========================================== -->
     <div id="block-wipe-overlay"></div>
 
@@ -58,7 +59,7 @@
         </video>
 
 
-        <!-- Dark overlay so menu stays readable over the video -->
+        <!-- Dark overlay -->
         <div class="home-overlay"></div>
 
 
@@ -79,7 +80,10 @@
         <!-- =========================================
              MAIN MENU
         ========================================== -->
-        <nav class="home-menu" aria-label="Main menu">
+        <nav
+            class="home-menu"
+            aria-label="Main menu"
+        >
 
             <button
                 class="menu-btn"
@@ -115,9 +119,7 @@
 
             <div class="menu-row">
 
-                <!-- =========================================
-                     WORLD ICON
-                ========================================== -->
+                <!-- World -->
                 <button
                     class="icon-btn world-icon-btn"
                     data-target="hobbies-icon"
@@ -130,6 +132,7 @@
                 </button>
 
 
+                <!-- Hobbies -->
                 <button
                     class="menu-btn menu-btn-half"
                     data-target="hobbies"
@@ -138,6 +141,7 @@
                 </button>
 
 
+                <!-- Others -->
                 <button
                     class="menu-btn menu-btn-half"
                     data-target="others"
@@ -170,7 +174,7 @@
 
 
             <a
-                href="https://github.com/lalchandanijatin1-cyber"
+                href="https://github.com/lalchandanjatin1-cyber"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-icon"
@@ -187,7 +191,18 @@
     </main>
 
 
-    <!-- Home controller -->
+    <!-- =========================================
+         GLOBAL BACKGROUND MUSIC
+    ========================================== -->
+    <script
+        type="module"
+        src="/src/music/music.js"
+    ></script>
+
+
+    <!-- =========================================
+         HOME CONTROLLER
+    ========================================== -->
     <script
         type="module"
         src="/src/home/index.js"

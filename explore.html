@@ -24,72 +24,151 @@
             loop
             playsinline
         >
-            <source src="/explore/background/explore-background.mp4" type="video/mp4">
+            <source
+                src="/explore/background/explore-background.mp4"
+                type="video/mp4"
+            >
         </video>
 
         <div class="explore-overlay"></div>
 
         <div class="explore-panel-wrap">
 
-            <button class="side-arrow side-arrow-left" id="tab-prev" aria-label="Previous tab">[</button>
+            <!-- Previous Tab -->
+            <button
+                class="side-arrow side-arrow-left"
+                id="tab-prev"
+                aria-label="Previous tab"
+            >
+                [
+            </button>
 
             <section class="explore-panel">
 
-                <!-- TAB BAR: Worlds→Projects, Friends→Skills, Servers→Services -->
+                <!-- =========================================
+                     FIXED TAB BAR
+                     Projects → Skills → Services
+                     Heading position stays intact
+                ========================================== -->
                 <div class="tab-bar" role="tablist">
 
-                    <button class="tab-btn" data-tab="projects" role="tab">
+                    <button
+                        class="tab-btn"
+                        data-tab="projects"
+                        role="tab"
+                        aria-selected="false"
+                    >
                         <span class="tab-label">Projects</span>
                     </button>
 
-                    <button class="tab-btn" data-tab="skills" role="tab">
+                    <button
+                        class="tab-btn"
+                        data-tab="skills"
+                        role="tab"
+                        aria-selected="false"
+                    >
                         <span class="tab-label">Skills</span>
                     </button>
 
-                    <button class="tab-btn" data-tab="services" role="tab">
+                    <button
+                        class="tab-btn"
+                        data-tab="services"
+                        role="tab"
+                        aria-selected="false"
+                    >
                         <span class="tab-label">Services</span>
                     </button>
 
-                    <button class="tab-btn tab-close" id="close-tab" aria-label="Close and return to Home">
+                    <!-- Close -->
+                    <button
+                        class="tab-btn tab-close"
+                        id="close-tab"
+                        aria-label="Close and return to Home"
+                    >
                         &#10005;
                     </button>
 
                 </div>
 
+                <!-- =========================================
+                     PANEL BODY
+                     Only content below the headings changes
+                ========================================== -->
                 <div class="panel-body">
 
-                    <!-- ACTION ROW: Create New / Switch to new UI / Exit
-                         → Build With Me / Connect With Me / Back To Home -->
+                    <!-- =====================================
+                         ACTIONS
+                    ====================================== -->
                     <div class="action-row">
 
-                        <button class="action-btn" id="build-with-me-btn">
+                        <!-- Opens email draft through index.js -->
+                        <button
+                            class="action-btn"
+                            id="build-with-me-btn"
+                        >
                             Build With Me
                         </button>
 
-                        <button class="action-btn" id="connect-with-me-btn">
+                        <button
+                            class="action-btn"
+                            id="connect-with-me-btn"
+                        >
                             Connect With Me
                         </button>
 
-                        <button class="action-btn action-btn-icon" id="back-to-home-btn" aria-label="Back to Home">
+                        <button
+                            class="action-btn action-btn-icon"
+                            id="back-to-home-btn"
+                            aria-label="Back to Home"
+                        >
                             &#8617;
                         </button>
 
                     </div>
 
-                    <!-- Tab-specific content, rendered by index.js -->
-                    <div class="panel-content" id="panel-content"></div>
+                    <!-- =====================================
+                         DYNAMIC CONTENT
+                         Projects / Skills / Services content
+                         comes out from here.
+
+                         The tab-bar above remains fixed.
+                    ====================================== -->
+                    <div
+                        class="panel-content"
+                        id="panel-content"
+                    ></div>
 
                 </div>
 
             </section>
 
-            <button class="side-arrow side-arrow-right" id="tab-next" aria-label="Next tab">]</button>
+            <!-- Next Tab -->
+            <button
+                class="side-arrow side-arrow-right"
+                id="tab-next"
+                aria-label="Next tab"
+            >
+                ]
+            </button>
 
         </div>
 
     </main>
 
-    <script type="module" src="/src/explore/index.js"></script>
+
+    <!-- =========================================
+         GLOBAL PORTFOLIO MUSIC
+    ========================================== -->
+    <script
+        type="module"
+        src="/src/music/music.js"
+    ></script>
+
+
+    <script
+        type="module"
+        src="/src/explore/index.js"
+    ></script>
 
 </body>
 </html>

@@ -1,49 +1,346 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WORLD — Jatin Lalchandani</title>
+    <title>World — Jatin Lalchandani</title>
 
-    <!-- Block Wipe Transition -->
-    <link
-        rel="stylesheet"
-        href="/src/transitions/block-wipe/block-wipe.css"
-    >
+    <link rel="stylesheet" href="/src/world/style.css">
 </head>
 
 <body>
 
-    <!-- =========================================
-         BLOCK WIPE ARRIVAL TRANSITION
+<main id="world">
 
-         Starts fully covered and disperses
-         to reveal the World page.
-    ========================================== -->
+    <!-- ==========================================
+         3D WORLD CANVAS
+    =========================================== -->
+
+    <canvas id="world-canvas"></canvas>
+
+
+    <!-- ==========================================
+         LOADING SCREEN
+    =========================================== -->
+
+    <div id="world-loader" class="world-loader">
+
+        <div class="loader-inner">
+
+            <div class="loader-small">
+                JATIN LALCHANDANI
+            </div>
+
+            <div id="loader-text" class="loader-title">
+                GENERATING WORLD...
+            </div>
+
+            <div class="loader-bar">
+                <div id="loader-progress" class="loader-progress"></div>
+            </div>
+
+            <div id="loader-percent" class="loader-percent">
+                0%
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         TOP HUD
+    =========================================== -->
+
+    <header class="world-header">
+
+        <div class="world-brand">
+
+            <div class="world-brand-small">
+                JATIN'S
+            </div>
+
+            <div class="world-brand-main">
+                WORLD
+            </div>
+
+        </div>
+
+        <button
+            id="close-to-home-btn"
+            class="close-to-home-btn"
+            aria-label="Back to Home"
+        >
+            ×
+        </button>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTROLS
+    =========================================== -->
+
+    <div id="controls-hud" class="controls-hud">
+
+        <div class="control-line">
+            <span>W A S D</span>
+            <small>MOVE</small>
+        </div>
+
+        <div class="control-line">
+            <span>MOUSE</span>
+            <small>LOOK</small>
+        </div>
+
+        <div class="control-line">
+            <span>CLICK</span>
+            <small>INTERACT</small>
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         WORLD TITLE
+    =========================================== -->
+
+    <div id="world-intro" class="world-intro">
+
+        <div class="world-intro-label">
+            WELCOME TO
+        </div>
+
+        <div class="world-intro-title">
+            JATIN'S WORLD
+        </div>
+
+        <div class="world-intro-description">
+            Explore. Discover. Build.
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         INTERACTION PROMPT
+    =========================================== -->
+
     <div
-        id="block-wipe-overlay"
-        class="block-wipe-active block-wipe-covered"
-    ></div>
+        id="interaction-prompt"
+        class="interaction-prompt"
+    >
+
+        <span class="interaction-key">
+            E
+        </span>
+
+        <span id="interaction-text">
+            EXPLORE
+        </span>
+
+    </div>
 
 
-    <h1>WORLD</h1>
+    <!-- ==========================================
+         LOCATION PANEL
+    =========================================== -->
+
+    <div
+        id="location-panel"
+        class="location-panel"
+    >
+
+        <button
+            id="close-location-btn"
+            class="location-close"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+        <div class="location-type">
+            LOCATION
+        </div>
+
+        <h1 id="location-title">
+            LOCATION
+        </h1>
+
+        <div class="location-line"></div>
+
+        <p id="location-description">
+            Description
+        </p>
+
+        <div
+            id="location-details"
+            class="location-details"
+        ></div>
+
+        <button
+            id="location-action"
+            class="location-action"
+        >
+            EXPLORE
+        </button>
+
+    </div>
 
 
-    <!-- =========================================
-         BLOCK WIPE CONTROLLER
-    ========================================== -->
-    <script type="module">
+    <!-- ==========================================
+         MINIMAP
+    =========================================== -->
 
-        import {
-            BlockWipeTransition
-        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+    <div class="minimap">
 
-        BlockWipeTransition.revealIn();
+        <div class="minimap-title">
+            WORLD MAP
+        </div>
 
-    </script>
+        <div
+            id="minimap-world"
+            class="minimap-world"
+        >
+
+            <div
+                class="map-point base-point"
+                data-map="base"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point robotics-point"
+                data-map="robotics"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point ai-point"
+                data-map="ai"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point web-point"
+                data-map="web"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point electronics-point"
+                data-map="electronics"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point library-point"
+                data-map="library"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point creative-point"
+                data-map="creative"
+            >
+                <span></span>
+            </div>
+
+            <div
+                class="map-point future-point"
+                data-map="future"
+            >
+                <span></span>
+            </div>
+
+            <div
+                id="player-map-point"
+                class="player-map-point"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         BOTTOM STATUS
+    =========================================== -->
+
+    <div class="world-status">
+
+        <span class="status-dot"></span>
+
+        <span id="world-status-text">
+            WORLD ONLINE
+        </span>
+
+    </div>
+
+
+    <!-- ==========================================
+         MOBILE CONTROL
+    =========================================== -->
+
+    <div
+        id="mobile-controls"
+        class="mobile-controls"
+    >
+
+        <div class="mobile-row">
+
+            <button data-key="w">
+                W
+            </button>
+
+        </div>
+
+        <div class="mobile-row">
+
+            <button data-key="a">
+                A
+            </button>
+
+            <button data-key="s">
+                S
+            </button>
+
+            <button data-key="d">
+                D
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ==========================================
+     GLOBAL PORTFOLIO MUSIC
+=========================================== -->
+
+<script
+    type="module"
+    src="/src/music/music.js"
+></script>
+
+
+<!-- ==========================================
+     WORLD PAGE LOGIC
+=========================================== -->
+
+<script
+    type="module"
+    src="/src/world/index.js"
+></script>
 
 </body>
 </html>
-```
