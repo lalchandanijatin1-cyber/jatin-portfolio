@@ -1,49 +1,274 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EXPERIENCE — Jatin Lalchandani</title>
+    <title>Experience — Jatin Lalchandani</title>
 
     <!-- Block Wipe Transition -->
-    <link
-        rel="stylesheet"
-        href="/src/transitions/block-wipe/block-wipe.css"
-    >
+    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
+
+    <!-- Experience Styles -->
+    <link rel="stylesheet" href="/src/experience/style.css">
 </head>
 
 <body>
 
-    <!-- =========================================
-         BLOCK WIPE ARRIVAL TRANSITION
-
-         Starts fully covered and disperses
-         to reveal the Experience page.
-    ========================================== -->
+    <!-- =========================================================
+         BLOCK WIPE TRANSITION
+    ========================================================== -->
     <div
         id="block-wipe-overlay"
-        class="block-wipe-active block-wipe-covered"
-    ></div>
+        class="block-wipe-active block-wipe-covered">
+    </div>
 
 
-    <h1>EXPERIENCE</h1>
+    <!-- =========================================================
+         EXPERIENCE PAGE
+    ========================================================== -->
+    <main id="experience">
+
+        <!-- Background Video -->
+        <video
+            id="experience-video"
+            class="experience-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source
+                src="/experience/background/experience-background.mp4"
+                type="video/mp4"
+            >
+        </video>
+
+        <!-- Dark overlay -->
+        <div class="experience-overlay"></div>
 
 
-    <!-- =========================================
-         BLOCK WIPE CONTROLLER
-    ========================================== -->
-    <script type="module">
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+        <header class="experience-header">
 
-        import {
-            BlockWipeTransition
-        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
+            <button
+                id="close-to-home-btn"
+                class="close-to-home-btn"
+                aria-label="Back to Home"
+            >
+                ×
+            </button>
 
-        BlockWipeTransition.revealIn();
+        </header>
 
-    </script>
+
+        <!-- =====================================================
+             EXPERIENCE MAIN VIEW
+        ====================================================== -->
+        <section
+            id="experience-main-view"
+            class="experience-screen active-screen"
+        >
+
+            <!-- Experience Logo -->
+            <div class="experience-title-wrap">
+
+                <img
+                    src="/experience/logo/experience.png"
+                    alt="Experience"
+                    class="experience-logo"
+                >
+
+            </div>
+
+
+            <!-- Mecha Dojo -->
+            <div class="experience-card-container">
+
+                <article
+                    id="mecha-dojo-card"
+                    class="experience-card"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Open Mecha Dojo experience"
+                >
+
+                    <div class="experience-card-image-frame">
+
+                        <img
+                            src="/experience/mecha-dojo/mecha-dojo.jpg"
+                            alt="Mecha Dojo"
+                            class="experience-card-image"
+                        >
+
+                    </div>
+
+                    <div class="experience-card-content">
+
+                        <h2 class="experience-card-name">
+                            MECHA DOJO
+                        </h2>
+
+                        <div class="experience-card-action">
+                            CLICK TO EXPLORE
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MECHA DOJO DETAIL VIEW
+        ====================================================== -->
+        <section
+            id="experience-detail-view"
+            class="experience-screen"
+        >
+
+            <!-- Back Button -->
+            <button
+                id="back-to-experience-btn"
+                class="minecraft-back-btn"
+            >
+                ← BACK TO EXPERIENCE
+            </button>
+
+
+            <!-- Detail Panel -->
+            <div class="experience-detail-panel">
+
+                <!-- Heading -->
+                <div class="experience-detail-heading">
+
+                    <div class="experience-detail-small-title">
+                        EXPERIENCE
+                    </div>
+
+                    <h1 id="detail-experience-name">
+                        MECHA DOJO
+                    </h1>
+
+                </div>
+
+
+                <!-- Main Detail Content -->
+                <div class="experience-detail-main">
+
+                    <!-- Left -->
+                    <div class="experience-detail-left">
+
+                        <div class="experience-detail-image-frame">
+
+                            <img
+                                id="detail-experience-image"
+                                src="/experience/mecha-dojo/mecha-dojo.jpg"
+                                alt="Mecha Dojo"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Right -->
+                    <div class="experience-detail-right">
+
+                        <!-- Role -->
+                        <div class="experience-detail-field">
+
+                            <div class="experience-detail-label">
+                                ROLE
+                            </div>
+
+                            <div
+                                id="detail-experience-role"
+                                class="experience-detail-value"
+                            ></div>
+
+                        </div>
+
+
+                        <!-- Duration -->
+                        <div class="experience-detail-field">
+
+                            <div class="experience-detail-label">
+                                DURATION
+                            </div>
+
+                            <div
+                                id="detail-experience-duration"
+                                class="experience-detail-value"
+                            ></div>
+
+                        </div>
+
+
+                        <!-- Description -->
+                        <div class="experience-detail-field">
+
+                            <div class="experience-detail-label">
+                                DESCRIPTION
+                            </div>
+
+                            <p
+                                id="detail-experience-description"
+                                class="experience-detail-description"
+                            ></p>
+
+                        </div>
+
+
+                        <!-- Responsibilities -->
+                        <div class="experience-detail-field">
+
+                            <div class="experience-detail-label">
+                                RESPONSIBILITIES
+                            </div>
+
+                            <div
+                                id="detail-experience-responsibilities"
+                                class="experience-responsibilities"
+                            ></div>
+
+                        </div>
+
+
+                        <!-- Skills -->
+                        <div class="experience-detail-field">
+
+                            <div class="experience-detail-label">
+                                SKILLS
+                            </div>
+
+                            <div
+                                id="detail-experience-skills"
+                                class="experience-skills"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         EXPERIENCE JAVASCRIPT
+    ========================================================== -->
+    <script type="module" src="/src/experience/index.js"></script>
 
 </body>
 </html>
-```
