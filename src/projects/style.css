@@ -1,7 +1,7 @@
 
 /* =========================================
    PROJECTS PAGE
-   Minecraft / Voxel inspired UI
+   Minecraft / Voxel Inspired UI
 ========================================= */
 
 * {
@@ -23,16 +23,16 @@ body {
     overflow-x: hidden;
 }
 
-
 /* =========================================
    BACKGROUND VIDEO
 ========================================= */
 
 #projects {
     position: relative;
-    min-height: 100vh;
     width: 100%;
+    min-height: 100vh;
     overflow: hidden;
+    isolation: isolate;
 }
 
 .projects-video {
@@ -43,8 +43,10 @@ body {
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
-    z-index: 0;
+    z-index: -2;
+    pointer-events: none;
 }
 
 .projects-overlay {
@@ -54,14 +56,12 @@ body {
     background:
         linear-gradient(
             rgba(0, 0, 0, 0.42),
-            rgba(0, 0, 0, 0.68)
+            rgba(0, 0, 0, 0.72)
         );
 
-    z-index: 1;
-
+    z-index: -1;
     pointer-events: none;
 }
-
 
 /* =========================================
    HEADER
@@ -74,7 +74,6 @@ body {
     left: 0;
 
     width: 100%;
-
     height: 80px;
 
     display: flex;
@@ -94,14 +93,14 @@ body {
     font-size: clamp(22px, 3vw, 38px);
 
     font-weight: 900;
-
     letter-spacing: 5px;
+
+    white-space: nowrap;
 
     text-shadow:
         3px 3px 0 #000,
         5px 5px 0 rgba(0, 0, 0, 0.5);
 }
-
 
 /* =========================================
    CLOSE BUTTON
@@ -118,10 +117,11 @@ body {
 
     border: 3px solid #fff;
 
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
 
     color: #fff;
 
+    font-family: inherit;
     font-size: 34px;
     line-height: 1;
 
@@ -152,7 +152,6 @@ body {
         1px 1px 0 #000;
 }
 
-
 /* =========================================
    COMMON SCREEN
 ========================================= */
@@ -162,22 +161,22 @@ body {
 
     z-index: 10;
 
+    width: 100%;
     min-height: 100vh;
 
-    width: 100%;
-
     padding:
-        100px
+        110px
         6vw
-        60px;
+        70px;
+}
 
+.projects-screen:not(.active-screen) {
     display: none;
 }
 
 .projects-screen.active-screen {
     display: block;
 }
-
 
 /* =========================================
    PROJECTS TITLE
@@ -188,21 +187,25 @@ body {
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .projects-logo {
-    width: min(420px, 60vw);
+    display: block;
+
+    width: min(420px, 80vw);
+    height: auto;
 
     max-height: 130px;
 
     object-fit: contain;
+    object-position: center;
 
     filter:
         drop-shadow(5px 5px 0 #000);
 }
-
 
 /* =========================================
    CATEGORY GRID
@@ -216,11 +219,10 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 28px;
 }
-
 
 /* =========================================
    CATEGORY CARD
@@ -229,12 +231,13 @@ body {
 .category-card {
     position: relative;
 
+    width: 100%;
+    min-width: 0;
     min-height: 260px;
 
     border: 4px solid #fff;
 
     background: #222;
-
     color: #fff;
 
     cursor: pointer;
@@ -269,9 +272,8 @@ body {
         3px 3px 0 #000;
 }
 
-
 /* =========================================
-   CARD IMAGE
+   CATEGORY IMAGE BOX
 ========================================= */
 
 .card-image-wrap {
@@ -285,13 +287,26 @@ body {
     background: #333;
 }
 
+/* =========================================
+   CATEGORY IMAGE
+========================================= */
+
 .card-image {
+    position: absolute;
+
+    inset: 0;
+
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 1;
+
+    transform: scale(1);
 
     transition:
         transform 0.35s ease,
@@ -303,6 +318,10 @@ body {
 
     filter: brightness(1.15);
 }
+
+/* =========================================
+   CATEGORY FALLBACK
+========================================= */
 
 .card-image-fallback {
     position: absolute;
@@ -329,22 +348,31 @@ body {
             #292929 10px,
             #292929 20px
         );
-}
 
+    z-index: 0;
+}
 
 /* =========================================
    CARD TITLE
 ========================================= */
 
 .card-title {
+    position: relative;
+
     min-height: 58px;
 
-    padding: 16px 55px 15px 18px;
+    padding:
+        16px
+        55px
+        15px
+        18px;
 
     display: flex;
+
     align-items: center;
 
-    background: rgba(0, 0, 0, 0.85);
+    background:
+        rgba(0, 0, 0, 0.9);
 
     font-size: 17px;
 
@@ -353,6 +381,8 @@ body {
     letter-spacing: 1px;
 
     text-transform: uppercase;
+
+    z-index: 3;
 }
 
 .card-arrow {
@@ -364,11 +394,12 @@ body {
     font-size: 27px;
 
     font-weight: bold;
+
+    z-index: 5;
 }
 
-
 /* =========================================
-   GITHUB
+   GITHUB BUTTON
 ========================================= */
 
 .all-projects-github {
@@ -388,6 +419,8 @@ body {
 
     text-decoration: none;
 
+    font-family: inherit;
+
     font-weight: 900;
 
     letter-spacing: 1px;
@@ -406,7 +439,6 @@ body {
     transform:
         translate(-2px, -2px);
 }
-
 
 /* =========================================
    BACK BUTTON
@@ -458,7 +490,6 @@ body {
         2px 2px 0 #000;
 }
 
-
 /* =========================================
    SECTION TITLE
 ========================================= */
@@ -472,11 +503,8 @@ body {
 
     max-width: 1000px;
 
-    font-size: clamp(
-        25px,
-        4vw,
-        48px
-    );
+    font-size:
+        clamp(25px, 4vw, 48px);
 
     font-weight: 900;
 
@@ -485,7 +513,6 @@ body {
     text-shadow:
         4px 4px 0 #000;
 }
-
 
 /* =========================================
    PROJECT GRID
@@ -499,11 +526,10 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0, 1fr));
 
     gap: 25px;
 }
-
 
 /* =========================================
    PROJECT CARD
@@ -512,6 +538,8 @@ body {
 .project-card {
     position: relative;
 
+    width: 100%;
+    min-width: 0;
     min-height: 290px;
 
     padding: 0;
@@ -552,9 +580,8 @@ body {
         3px 3px 0 #000;
 }
 
-
 /* =========================================
-   PROJECT IMAGE
+   PROJECT IMAGE BOX
 ========================================= */
 
 .project-card-image-wrap {
@@ -563,24 +590,46 @@ body {
     width: 100%;
     height: 205px;
 
-    background: #2b2b2b;
-
     overflow: hidden;
+
+    background: #2b2b2b;
 }
 
+/* =========================================
+   PROJECT CARD IMAGE
+========================================= */
+
 .project-card-image {
+    position: absolute;
+
+    inset: 0;
+
     width: 100%;
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
+    object-position: center;
+
+    z-index: 1;
+
+    transform: scale(1);
 
     transition:
-        transform 0.35s ease;
+        transform 0.35s ease,
+        filter 0.35s ease;
 }
 
 .project-card:hover .project-card-image {
     transform: scale(1.08);
+
+    filter: brightness(1.1);
 }
+
+/* =========================================
+   PROJECT CARD PLACEHOLDER
+========================================= */
 
 .project-card-placeholder {
     position: absolute;
@@ -608,17 +657,29 @@ body {
             #2c2c2c 10px,
             #2c2c2c 20px
         );
-}
 
+    z-index: 0;
+}
 
 /* =========================================
    PROJECT CARD CONTENT
 ========================================= */
 
 .project-card-content {
-    padding: 14px 50px 15px 15px;
+    position: relative;
 
-    background: rgba(0, 0, 0, 0.9);
+    min-height: 80px;
+
+    padding:
+        14px
+        50px
+        15px
+        15px;
+
+    background:
+        rgba(0, 0, 0, 0.9);
+
+    z-index: 3;
 }
 
 .project-card-name {
@@ -650,7 +711,6 @@ body {
     font-weight: 900;
 }
 
-
 /* =========================================
    COMING SOON BADGE
 ========================================= */
@@ -673,8 +733,9 @@ body {
 
     box-shadow:
         3px 3px 0 #000;
-}
 
+    z-index: 10;
+}
 
 /* =========================================
    DETAIL PANEL
@@ -695,7 +756,6 @@ body {
 
     padding: 30px;
 }
-
 
 /* =========================================
    DETAIL HEADER
@@ -728,11 +788,8 @@ body {
 .detail-project-name {
     margin-top: 6px;
 
-    font-size: clamp(
-        25px,
-        4vw,
-        42px
-    );
+    font-size:
+        clamp(25px, 4vw, 42px);
 
     line-height: 1.15;
 
@@ -756,7 +813,6 @@ body {
     white-space: nowrap;
 }
 
-
 /* =========================================
    DETAIL MAIN
 ========================================= */
@@ -765,14 +821,13 @@ body {
     display: grid;
 
     grid-template-columns:
-        360px 1fr;
+        360px minmax(0, 1fr);
 
     gap: 35px;
 }
 
-
 /* =========================================
-   DETAIL IMAGE
+   DETAIL IMAGE FRAME
 ========================================= */
 
 .detail-image-frame {
@@ -784,22 +839,48 @@ body {
 
     border: 4px solid #fff;
 
-    background: #222;
+    background: #111;
 
     overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     box-shadow:
         6px 6px 0 #000;
 }
 
+/* =========================================
+   DETAIL PROJECT IMAGE
+   FULL IMAGE / ZOOMED OUT
+========================================= */
+
 .detail-project-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: scale(0.88);
+
+    z-index: 1;
+
+    transition:
+        transform 0.3s ease;
 }
+
+/* =========================================
+   DETAIL IMAGE PLACEHOLDER
+========================================= */
 
 .detail-image-placeholder {
     position: absolute;
@@ -827,8 +908,9 @@ body {
             #2d2d2d 10px,
             #2d2d2d 20px
         );
-}
 
+    z-index: 0;
+}
 
 /* =========================================
    SKILLS
@@ -865,7 +947,6 @@ body {
 
     line-height: 1.2;
 }
-
 
 /* =========================================
    DETAIL FIELDS
@@ -913,7 +994,6 @@ body {
     line-height: 1.7;
 }
 
-
 /* =========================================
    TOP SKILLS
 ========================================= */
@@ -940,7 +1020,6 @@ body {
     box-shadow:
         3px 3px 0 #000;
 }
-
 
 /* =========================================
    LINKS
@@ -994,7 +1073,6 @@ body {
         1px 1px 0 #000;
 }
 
-
 /* =========================================
    COMING SOON
 ========================================= */
@@ -1038,11 +1116,8 @@ body {
 }
 
 .coming-soon-panel h1 {
-    font-size: clamp(
-        35px,
-        7vw,
-        70px
-    );
+    font-size:
+        clamp(35px, 7vw, 70px);
 
     letter-spacing: 4px;
 
@@ -1060,7 +1135,6 @@ body {
     opacity: 0.75;
 }
 
-
 /* =========================================
    TABLET
 ========================================= */
@@ -1069,21 +1143,19 @@ body {
 
     .category-grid {
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
     .project-grid {
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
     .detail-main {
         grid-template-columns:
-            280px 1fr;
+            280px minmax(0, 1fr);
     }
-
 }
-
 
 /* =========================================
    MOBILE
@@ -1106,6 +1178,12 @@ body {
         font-size: 20px;
 
         letter-spacing: 3px;
+
+        max-width: 65vw;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
     }
 
     .close-to-home-btn {
@@ -1118,6 +1196,13 @@ body {
         font-size: 29px;
     }
 
+    .projects-title-wrap {
+        margin-bottom: 30px;
+    }
+
+    .projects-logo {
+        width: min(350px, 90vw);
+    }
 
     .category-grid {
         grid-template-columns: 1fr;
@@ -1133,7 +1218,6 @@ body {
         height: 180px;
     }
 
-
     .project-grid {
         grid-template-columns: 1fr;
 
@@ -1144,6 +1228,9 @@ body {
         min-height: 270px;
     }
 
+    .project-card-image-wrap {
+        height: 190px;
+    }
 
     .detail-panel {
         padding: 18px;
@@ -1169,9 +1256,13 @@ body {
     }
 
     .detail-image-frame {
-        max-width: 400px;
+        width: min(100%, 400px);
 
         margin: 0 auto;
+    }
+
+    .detail-project-image {
+        transform: scale(0.88);
     }
 
     .all-projects-github {
@@ -1180,8 +1271,54 @@ body {
         text-align: center;
     }
 
+    .coming-soon-panel {
+        padding:
+            45px
+            20px;
+    }
 }
 
+/* =========================================
+   EXTRA SMALL DEVICES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .projects-screen {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .projects-header-title {
+        font-size: 17px;
+    }
+
+    .card-image-wrap {
+        height: 165px;
+    }
+
+    .project-card-image-wrap {
+        height: 175px;
+    }
+
+    .category-card {
+        border-width: 3px;
+
+        box-shadow:
+            5px 5px 0 #000;
+    }
+
+    .project-card {
+        border-width: 3px;
+
+        box-shadow:
+            5px 5px 0 #000;
+    }
+
+    .detail-project-image {
+        transform: scale(0.82);
+    }
+}
 
 /* =========================================
    REDUCED MOTION
@@ -1198,5 +1335,4 @@ body {
 
         animation-duration: 0.01ms !important;
     }
-
 }
