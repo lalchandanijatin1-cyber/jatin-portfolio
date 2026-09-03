@@ -1,186 +1,206 @@
-import { EXPERIENCE } from './data.js';
+import { EXPERIENCE } from "./data.js";
 
 
 // =========================================================
 // ELEMENTS
 // =========================================================
 
-const mainView = document.getElementById('experience-main-view');
-const detailView = document.getElementById('experience-detail-view');
-
-const mechaDojoCard = document.getElementById('mecha-dojo-card');
-
-const closeToHomeBtn = document.getElementById('close-to-home-btn');
-const backToExperienceBtn = document.getElementById(
-    'back-to-experience-btn'
-);
-
-const detailExperienceName =
-    document.getElementById('detail-experience-name');
-
-const detailExperienceImage =
-    document.getElementById('detail-experience-image');
-
-const detailExperienceRole =
-    document.getElementById('detail-experience-role');
-
-const detailExperienceDuration =
-    document.getElementById('detail-experience-duration');
-
-const detailExperienceDescription =
-    document.getElementById('detail-experience-description');
-
-const detailExperienceResponsibilities =
+const mainView =
     document.getElementById(
-        'detail-experience-responsibilities'
+        "experience-main-view"
     );
 
-const detailExperienceSkills =
+const detailView =
     document.getElementById(
-        'detail-experience-skills'
+        "experience-detail-view"
     );
 
-const experienceVideo =
-    document.getElementById('experience-video');
+const comingSoonView =
+    document.getElementById(
+        "coming-soon-detail-view"
+    );
+
+
+const mechaDojoCard =
+    document.getElementById(
+        "mecha-dojo-card"
+    );
+
+const comingSoonCard =
+    document.getElementById(
+        "coming-soon-card"
+    );
+
+
+const closeButton =
+    document.getElementById(
+        "close-to-home-btn"
+    );
+
+const backButton =
+    document.getElementById(
+        "back-to-experience-btn"
+    );
+
+const comingSoonBackButton =
+    document.getElementById(
+        "back-from-coming-soon-btn"
+    );
 
 
 // =========================================================
-// SHOW MAIN EXPERIENCE
+// SCREEN CONTROL
 // =========================================================
 
-function showMainView() {
+function hideAllScreens() {
 
-    mainView.classList.add('active-screen');
-    detailView.classList.remove('active-screen');
+    mainView.classList.remove(
+        "active-screen"
+    );
+
+    detailView.classList.remove(
+        "active-screen"
+    );
+
+    comingSoonView.classList.remove(
+        "active-screen"
+    );
+
+}
+
+
+function showMain() {
+
+    hideAllScreens();
+
+    mainView.classList.add(
+        "active-screen"
+    );
 
     mainView.scrollTop = 0;
 }
 
 
-// =========================================================
-// SHOW MECHA DOJO DETAIL
-// =========================================================
+function showMechaDojo() {
 
-function showDetailView() {
+    hideAllScreens();
 
-    mainView.classList.remove('active-screen');
-    detailView.classList.add('active-screen');
+    detailView.classList.add(
+        "active-screen"
+    );
 
     detailView.scrollTop = 0;
 }
 
 
+function showComingSoon() {
+
+    hideAllScreens();
+
+    comingSoonView.classList.add(
+        "active-screen"
+    );
+
+    comingSoonView.scrollTop = 0;
+}
+
+
 // =========================================================
-// LOAD MECHA DOJO DATA
+// LOAD MECHA DOJO
 // =========================================================
 
 function loadExperience() {
 
-    detailExperienceName.textContent =
+    document.getElementById(
+        "detail-experience-name"
+    ).textContent =
         EXPERIENCE.name;
 
-    detailExperienceImage.src =
+
+    const image =
+        document.getElementById(
+            "detail-experience-image"
+        );
+
+    image.src =
         EXPERIENCE.image;
 
-    detailExperienceImage.alt =
+    image.alt =
         EXPERIENCE.name;
 
-    detailExperienceRole.textContent =
+
+    document.getElementById(
+        "detail-experience-role"
+    ).textContent =
         EXPERIENCE.role;
 
-    detailExperienceDuration.textContent =
-        EXPERIENCE.duration;
 
-    detailExperienceDescription.textContent =
+    document.getElementById(
+        "detail-experience-description"
+    ).textContent =
         EXPERIENCE.description;
 
 
-    // ---------------------------------------------------------
-    // RESPONSIBILITIES
-    // ---------------------------------------------------------
+    // Responsibilities
 
-    detailExperienceResponsibilities.innerHTML = '';
+    const responsibilities =
+        document.getElementById(
+            "detail-experience-responsibilities"
+        );
+
+    responsibilities.innerHTML = "";
+
 
     EXPERIENCE.responsibilities.forEach(
-        (responsibility) => {
+        (item) => {
 
-            const item =
-                document.createElement('div');
+            const element =
+                document.createElement(
+                    "div"
+                );
 
-            item.className =
-                'experience-responsibility-item';
+            element.className =
+                "experience-responsibility-item";
 
-            item.textContent =
-                responsibility;
+            element.textContent =
+                item;
 
-            detailExperienceResponsibilities.appendChild(
-                item
+            responsibilities.appendChild(
+                element
             );
+
         }
     );
 
 
-    // ---------------------------------------------------------
-    // SKILLS
-    // ---------------------------------------------------------
+    // Skills
 
-    detailExperienceSkills.innerHTML = '';
+    const skills =
+        document.getElementById(
+            "detail-experience-skills"
+        );
+
+    skills.innerHTML = "";
+
 
     EXPERIENCE.skills.forEach(
         (skill) => {
 
-            const tag =
-                document.createElement('span');
+            const element =
+                document.createElement(
+                    "span"
+                );
 
-            tag.className =
-                'experience-skill-tag';
+            element.className =
+                "experience-skill-tag";
 
-            tag.textContent =
+            element.textContent =
                 skill;
 
-            detailExperienceSkills.appendChild(
-                tag
+            skills.appendChild(
+                element
             );
-        }
-    );
-}
 
-
-// =========================================================
-// MECHA DOJO CLICK
-// =========================================================
-
-if (mechaDojoCard) {
-
-    mechaDojoCard.addEventListener(
-        'click',
-        () => {
-
-            console.log('Mecha Dojo clicked');
-
-            loadExperience();
-
-            showDetailView();
-        }
-    );
-
-
-    // Keyboard support
-    mechaDojoCard.addEventListener(
-        'keydown',
-        (event) => {
-
-            if (
-                event.key === 'Enter' ||
-                event.key === ' '
-            ) {
-
-                event.preventDefault();
-
-                loadExperience();
-
-                showDetailView();
-            }
         }
     );
 
@@ -188,67 +208,97 @@ if (mechaDojoCard) {
 
 
 // =========================================================
-// BACK TO EXPERIENCE
+// MECHA DOJO
 // =========================================================
 
-if (backToExperienceBtn) {
+mechaDojoCard.addEventListener(
+    "click",
+    () => {
 
-    backToExperienceBtn.addEventListener(
-        'click',
-        () => {
+        loadExperience();
 
-            showMainView();
-        }
-    );
+        showMechaDojo();
 
-}
-
-
-// =========================================================
-// GO HOME
-// =========================================================
-
-if (closeToHomeBtn) {
-
-    closeToHomeBtn.addEventListener(
-        'click',
-        () => {
-
-            window.location.href = '/home.html';
-        }
-    );
-
-}
+    }
+);
 
 
 // =========================================================
-// ESCAPE KEY
+// COMING SOON
+// =========================================================
+
+comingSoonCard.addEventListener(
+    "click",
+    () => {
+
+        showComingSoon();
+
+    }
+);
+
+
+// =========================================================
+// BACK
+// =========================================================
+
+backButton.addEventListener(
+    "click",
+    showMain
+);
+
+
+comingSoonBackButton.addEventListener(
+    "click",
+    showMain
+);
+
+
+// =========================================================
+// HOME
+// =========================================================
+
+closeButton.addEventListener(
+    "click",
+    () => {
+
+        window.location.href =
+            "/home.html";
+
+    }
+);
+
+
+// =========================================================
+// ESCAPE
 // =========================================================
 
 document.addEventListener(
-    'keydown',
+    "keydown",
     (event) => {
 
-        if (event.key !== 'Escape') {
+        if (event.key !== "Escape") {
             return;
         }
 
 
         if (
-            detailView &&
             detailView.classList.contains(
-                'active-screen'
+                "active-screen"
+            ) ||
+            comingSoonView.classList.contains(
+                "active-screen"
             )
         ) {
 
-            showMainView();
+            showMain();
 
         } else {
 
             window.location.href =
-                '/home.html';
+                "/home.html";
 
         }
+
     }
 );
 
@@ -257,22 +307,17 @@ document.addEventListener(
 // VIDEO
 // =========================================================
 
-if (experienceVideo) {
+const video =
+    document.getElementById(
+        "experience-video"
+    );
 
-    experienceVideo.muted = true;
+if (video) {
 
-    const playPromise =
-        experienceVideo.play();
+    video.muted = true;
 
-    if (playPromise) {
+    video.play().catch(() => {});
 
-        playPromise.catch(() => {
-            console.log(
-                'Video autoplay was blocked.'
-            );
-        });
-
-    }
 }
 
 
@@ -282,8 +327,8 @@ if (experienceVideo) {
 
 loadExperience();
 
-showMainView();
+showMain();
 
 console.log(
-    'Experience page loaded successfully.'
+    "Experience initialized."
 );

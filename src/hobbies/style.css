@@ -1,0 +1,1099 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        "Space Grotesk",
+        Arial,
+        sans-serif;
+
+}
+
+
+#hobbies {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    color: #fff;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.hobbies-video {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+}
+
+
+.hobbies-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.40),
+            rgba(0, 0, 0, 0.70)
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.hobbies-header {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    padding:
+        18px 28px;
+
+    z-index: 100;
+
+}
+
+
+.close-to-home-btn {
+
+    width: 55px;
+    height: 55px;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    color: #fff;
+
+    border: 4px solid #fff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        6px 6px 0 #000;
+
+    transition:
+        0.15s ease;
+
+}
+
+
+.close-to-home-btn:hover {
+
+    background:
+        #b7f7c5;
+
+    color: #000;
+
+    transform:
+        translate(-3px, -3px);
+
+}
+
+
+/* =========================================================
+   SCREENS
+========================================================= */
+
+.hobbies-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        100px 35px 45px;
+
+}
+
+
+.hobbies-screen.active-screen {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.hobbies-title-wrap {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.hobbies-logo {
+
+    width:
+        min(420px, 65vw);
+
+    max-height: 115px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            5px 5px 0 #000
+        );
+
+}
+
+
+/* =========================================================
+   CARD GRID
+========================================================= */
+
+.hobbies-card-grid {
+
+    width:
+        min(1100px, 94vw);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+
+}
+
+
+/* =========================================================
+   HOBBY CARD
+========================================================= */
+
+.hobby-card {
+
+    position: relative;
+
+    background:
+        #b7f7c5;
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        8px 8px 0 #000;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+
+}
+
+
+.hobby-card:hover {
+
+    transform:
+        translate(-4px, -4px);
+
+    box-shadow:
+        12px 12px 0 #000;
+
+}
+
+
+.hobby-card:active {
+
+    transform:
+        translate(2px, 2px);
+
+    box-shadow:
+        4px 4px 0 #000;
+
+}
+
+
+.hobby-card:focus-visible {
+
+    outline:
+        4px solid #fff;
+
+    outline-offset: 5px;
+
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.hobby-card-image-frame {
+
+    width: 100%;
+
+    height: 230px;
+
+    background:
+        #111;
+
+    overflow: hidden;
+
+}
+
+
+.hobby-card-image {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+
+.hobby-card:hover
+.hobby-card-image {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================================================
+   CARD NAME
+========================================================= */
+
+.hobby-card-name {
+
+    min-height: 70px;
+
+    padding:
+        15px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #000;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(20px, 2.3vw, 30px);
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.minecraft-back-btn {
+
+    display: inline-flex;
+
+    padding:
+        12px 18px;
+
+    margin-bottom: 25px;
+
+    background:
+        #000;
+
+    color:
+        #fff;
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    cursor: pointer;
+
+    transition:
+        0.15s ease;
+
+}
+
+
+.minecraft-back-btn:hover {
+
+    background:
+        #b7f7c5;
+
+    color:
+        #000;
+
+    transform:
+        translate(-3px, -3px);
+
+}
+
+
+/* =========================================================
+   WRITING PANEL
+========================================================= */
+
+.writing-detail-panel {
+
+    width:
+        min(1150px, 94vw);
+
+    margin:
+        0 auto 45px;
+
+    padding:
+        30px;
+
+    background:
+        rgba(0, 0, 0, 0.84);
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        8px 8px 0 #000;
+
+}
+
+
+/* =========================================================
+   WRITING HEADING
+========================================================= */
+
+.writing-heading {
+
+    padding-bottom:
+        20px;
+
+    margin-bottom:
+        30px;
+
+    border-bottom:
+        3px solid #fff;
+
+}
+
+
+.writing-small-title {
+
+    color:
+        #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        3px;
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.writing-heading h1 {
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(35px, 5vw, 60px);
+
+    font-weight:
+        900;
+
+}
+
+
+/* =========================================================
+   BOOK
+========================================================= */
+
+.writing-book-area {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    padding:
+        10px 0 45px;
+
+}
+
+
+.minecraft-book {
+
+    width:
+        min(850px, 90vw);
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.75fr 1.25fr;
+
+    box-shadow:
+        10px 10px 0 #000;
+
+}
+
+
+/* =========================================================
+   BOOK COVER
+========================================================= */
+
+.book-cover {
+
+    min-height:
+        430px;
+
+    padding:
+        25px;
+
+    background:
+        #385b3d;
+
+    border:
+        5px solid #fff;
+
+    border-right:
+        3px solid #111;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.book-cover-inner {
+
+    width:
+        100%;
+
+    min-height:
+        370px;
+
+    border:
+        3px solid #b7f7c5;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+}
+
+
+.book-cover-label {
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    color:
+        #b7f7c5;
+
+    font-size:
+        18px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.book-cover-title {
+
+    margin:
+        15px 0;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    color:
+        #fff;
+
+    font-size:
+        clamp(30px, 4vw, 48px);
+
+    font-weight:
+        900;
+
+}
+
+
+.book-cover-line {
+
+    width:
+        100px;
+
+    height:
+        4px;
+
+    background:
+        #b7f7c5;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.book-cover-status {
+
+    padding:
+        8px 15px;
+
+    background:
+        #000;
+
+    color:
+        #b7f7c5;
+
+    border:
+        3px solid #fff;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        15px;
+
+    font-weight:
+        800;
+
+}
+
+
+/* =========================================================
+   BOOK PAGE
+========================================================= */
+
+.book-page {
+
+    min-height:
+        430px;
+
+    padding:
+        30px;
+
+    background:
+        #e8e0c7;
+
+    color:
+        #111;
+
+    border:
+        5px solid #fff;
+
+}
+
+
+.book-page-header {
+
+    padding-bottom:
+        12px;
+
+    border-bottom:
+        3px solid #111;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        17px;
+
+    font-weight:
+        900;
+
+}
+
+
+.book-page-content {
+
+    min-height:
+        340px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+}
+
+
+.book-incoming {
+
+    margin-bottom:
+        25px;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        clamp(32px, 5vw, 58px);
+
+    font-weight:
+        900;
+
+    opacity:
+        0.65;
+
+}
+
+
+/* =========================================================
+   WRITING LINKS
+========================================================= */
+
+.writing-links {
+
+    width:
+        min(430px, 100%);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+}
+
+
+.writing-link {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    padding:
+        14px 16px;
+
+    background:
+        #111;
+
+    color:
+        #fff;
+
+    border:
+        3px solid #000;
+
+    box-shadow:
+        4px 4px 0 #777;
+
+    text-decoration:
+        none;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    transition:
+        0.15s ease;
+
+}
+
+
+.writing-link:hover {
+
+    background:
+        #b7f7c5;
+
+    color:
+        #000;
+
+    transform:
+        translate(-3px, -3px);
+
+    box-shadow:
+        7px 7px 0 #000;
+
+}
+
+
+.writing-link-title {
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+
+.writing-link-platform {
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   PHOTOS
+========================================================= */
+
+.writing-photos-section {
+
+    padding-top:
+        10px;
+
+}
+
+
+.writing-section-label {
+
+    margin-bottom:
+        15px;
+
+    color:
+        #b7f7c5;
+
+    font-family:
+        "Pixelify Sans",
+        monospace;
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.writing-photo-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+
+}
+
+
+.writing-photo-card {
+
+    aspect-ratio:
+        4 / 3;
+
+    background:
+        #111;
+
+    border:
+        4px solid #fff;
+
+    box-shadow:
+        5px 5px 0 #000;
+
+    overflow:
+        hidden;
+
+}
+
+
+.writing-photo-card img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.hobbies-screen::-webkit-scrollbar {
+
+    width:
+        9px;
+
+}
+
+
+.hobbies-screen::-webkit-scrollbar-track {
+
+    background:
+        #000;
+
+}
+
+
+.hobbies-screen::-webkit-scrollbar-thumb {
+
+    background:
+        #b7f7c5;
+
+    border:
+        2px solid #000;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .hobbies-card-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .minecraft-book {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .book-cover {
+
+        min-height:
+            300px;
+
+    }
+
+
+    .book-cover-inner {
+
+        min-height:
+            250px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hobbies-screen {
+
+        padding:
+            90px 15px 30px;
+
+    }
+
+
+    .hobbies-card-grid {
+
+        grid-template-columns:
+            1fr;
+
+        width:
+            min(500px, 94vw);
+
+    }
+
+
+    .hobby-card-image-frame {
+
+        height:
+            210px;
+
+    }
+
+
+    .writing-detail-panel {
+
+        padding:
+            20px;
+
+    }
+
+
+    .writing-photo-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .writing-link {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+}

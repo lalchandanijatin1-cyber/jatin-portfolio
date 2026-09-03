@@ -1,27 +1,30 @@
 export const EXPERIENCE = {
-    id: 'mecha-dojo',
 
-    name: 'MECHA DOJO',
+    name: "MECHA DOJO",
 
-    image: '/experience/mecha-dojo/mecha-dojo.jpg',
+    image:
+        "/experience/mecha-dojo/mecha-dojo.jpg",
 
-    role: 'ROLE',
-
-    duration: 'DURATION',
+    role: "FOUNDER",
 
     description:
-        'Add your Mecha Dojo experience description here. This section will explain what you worked on, what you learned, and what you contributed during your experience.',
+        "Mecha Dojo is a robotics-focused platform where I work on practical robotics, automation, electronics and engineering projects.",
 
     responsibilities: [
-        'Add responsibility or work here',
-        'Add responsibility or work here',
-        'Add responsibility or work here'
+        "Working on robotics and automation projects.",
+        "Designing and building practical robotic systems.",
+        "Working with electronics and embedded systems.",
+        "Exploring new technologies and engineering solutions."
     ],
 
     skills: [
-        'Robotics',
-        'Automation',
-        'Electronics',
-        'Programming'
+        "Robotics",
+        "Automation",
+        "Electronics",
+        "Embedded Systems",
+        "Programming",
+        "3D Design",
+        "Engineering"
     ]
+
 };

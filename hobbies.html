@@ -1,49 +1,471 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HOBBIES — Jatin Lalchandani</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Block Wipe Transition -->
+    <title>Hobbies — Jatin Lalchandani</title>
+
     <link
         rel="stylesheet"
-        href="/src/transitions/block-wipe/block-wipe.css"
+        href="/src/hobbies/style.css"
     >
+
 </head>
+
 
 <body>
 
-    <!-- =========================================
-         BLOCK WIPE ARRIVAL TRANSITION
-
-         Starts fully covered and disperses
-         to reveal the Hobbies page.
-    ========================================== -->
-    <div
-        id="block-wipe-overlay"
-        class="block-wipe-active block-wipe-covered"
-    ></div>
+<main id="hobbies">
 
 
-    <h1>HOBBIES</h1>
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <video
+        id="hobbies-video"
+        class="hobbies-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+
+        <source
+            src="/hobbies/background/hobbies-background.mp4"
+            type="video/mp4"
+        >
+
+    </video>
 
 
-    <!-- =========================================
-         BLOCK WIPE CONTROLLER
-    ========================================== -->
-    <script type="module">
+    <div class="hobbies-overlay"></div>
 
-        import {
-            BlockWipeTransition
-        } from '/src/transitions/block-wipe/BlockWipeTransition.js';
 
-        BlockWipeTransition.revealIn();
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-    </script>
+    <header class="hobbies-header">
+
+        <button
+            id="close-to-home-btn"
+            class="close-to-home-btn"
+            aria-label="Back to Home"
+        >
+            ×
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         HOBBIES MAIN
+    ====================================================== -->
+
+    <section
+        id="hobbies-main-view"
+        class="hobbies-screen active-screen"
+    >
+
+
+        <div class="hobbies-title-wrap">
+
+            <img
+                src="/hobbies/logo/hobbies.png"
+                alt="Hobbies"
+                class="hobbies-logo"
+            >
+
+        </div>
+
+
+        <div class="hobbies-card-grid">
+
+
+            <!-- WRITING -->
+
+            <article
+                id="writing-card"
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/writing/writing.jpg"
+                        alt="Writing"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    WRITING
+
+                </div>
+
+            </article>
+
+
+            <!-- BASKETBALL -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/basketball/basketball.jpg"
+                        alt="Basketball"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    BASKETBALL
+
+                </div>
+
+            </article>
+
+
+            <!-- GUITAR -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/guitar/guitar.jpg"
+                        alt="Guitar"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    GUITAR
+
+                </div>
+
+            </article>
+
+
+            <!-- KARATE -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/karate/karate.jpg"
+                        alt="Karate"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    KARATE
+
+                </div>
+
+            </article>
+
+
+            <!-- CHESS -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/chess/chess.jpg"
+                        alt="Chess"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    CHESS
+
+                </div>
+
+            </article>
+
+
+            <!-- BEARD STYLING -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/beard-styling/beard-styling.jpg"
+                        alt="Beard Styling"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    BEARD STYLING
+
+                </div>
+
+            </article>
+
+
+            <!-- EVERYTHINGHOLIC -->
+
+            <article
+                class="hobby-card"
+                tabindex="0"
+            >
+
+                <div class="hobby-card-image-frame">
+
+                    <img
+                        src="/hobbies/everythingholic/everythingholic.jpg"
+                        alt="Everythingholic"
+                        class="hobby-card-image"
+                    >
+
+                </div>
+
+
+                <div class="hobby-card-name">
+
+                    EVERYTHINGHOLIC
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WRITING DETAIL
+    ====================================================== -->
+
+    <section
+        id="writing-detail-view"
+        class="hobbies-screen"
+    >
+
+
+        <button
+            id="back-to-hobbies-btn"
+            class="minecraft-back-btn"
+        >
+            ← BACK TO HOBBIES
+        </button>
+
+
+        <div class="writing-detail-panel">
+
+
+            <!-- TITLE -->
+
+            <div class="writing-heading">
+
+                <div class="writing-small-title">
+                    HOBBY
+                </div>
+
+                <h1>
+                    WRITING
+                </h1>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOOK
+            ================================================== -->
+
+            <div class="writing-book-area">
+
+                <div class="minecraft-book">
+
+
+                    <!-- BOOK COVER -->
+
+                    <div class="book-cover">
+
+                        <div class="book-cover-inner">
+
+                            <div class="book-cover-label">
+                                JATIN'S
+                            </div>
+
+                            <div class="book-cover-title">
+                                WRITINGS
+                            </div>
+
+                            <div class="book-cover-line"></div>
+
+                            <div class="book-cover-status">
+                                INCOMING
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOOK PAGE -->
+
+                    <div class="book-page">
+
+                        <div class="book-page-header">
+                            WRITING
+                        </div>
+
+
+                        <div class="book-page-content">
+
+                            <div class="book-incoming">
+                                INCOMING
+                            </div>
+
+
+                            <div class="writing-links">
+
+
+                                <!-- MEDIUM -->
+
+                                <a
+                                    href="https://medium.com/@lalchandani.jatin1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="writing-link"
+                                >
+
+                                    <span class="writing-link-title">
+                                        NON-TECHNICAL WRITING
+                                    </span>
+
+                                    <span class="writing-link-platform">
+                                        MEDIUM →
+                                    </span>
+
+                                </a>
+
+
+                                <!-- DEV -->
+
+                                <a
+                                    href="https://dev.to/jatin_lalchandani_a612ed3"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="writing-link"
+                                >
+
+                                    <span class="writing-link-title">
+                                        TECHNICAL WRITING
+                                    </span>
+
+                                    <span class="writing-link-platform">
+                                        DEV.TO →
+                                    </span>
+
+                                </a>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PHOTOS
+            ================================================== -->
+
+            <div class="writing-photos-section">
+
+                <div class="writing-section-label">
+                    PHOTOS
+                </div>
+
+
+                <div class="writing-photo-grid">
+
+                    <div class="writing-photo-card">
+
+                        <img
+                            src="/hobbies/writing/writing.jpg"
+                            alt="Writing"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script
+    type="module"
+    src="/src/hobbies/index.js"
+></script>
 
 </body>
+
 </html>
-```

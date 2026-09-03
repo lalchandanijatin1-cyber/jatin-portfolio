@@ -6,30 +6,14 @@
 
     <title>Experience — Jatin Lalchandani</title>
 
-    <!-- Block Wipe Transition -->
-    <link rel="stylesheet" href="/src/transitions/block-wipe/block-wipe.css">
-
-    <!-- Experience Styles -->
     <link rel="stylesheet" href="/src/experience/style.css">
 </head>
 
 <body>
 
-    <!-- =========================================================
-         BLOCK WIPE TRANSITION
-    ========================================================== -->
-    <div
-        id="block-wipe-overlay"
-        class="block-wipe-active block-wipe-covered">
-    </div>
-
-
-    <!-- =========================================================
-         EXPERIENCE PAGE
-    ========================================================== -->
     <main id="experience">
 
-        <!-- Background Video -->
+        <!-- Background -->
         <video
             id="experience-video"
             class="experience-video"
@@ -44,19 +28,15 @@
             >
         </video>
 
-        <!-- Dark overlay -->
         <div class="experience-overlay"></div>
 
 
-        <!-- =====================================================
-             HEADER
-        ====================================================== -->
+        <!-- Close -->
         <header class="experience-header">
 
             <button
                 id="close-to-home-btn"
                 class="close-to-home-btn"
-                aria-label="Back to Home"
             >
                 ×
             </button>
@@ -65,14 +45,14 @@
 
 
         <!-- =====================================================
-             EXPERIENCE MAIN VIEW
+             EXPERIENCE MAIN
         ====================================================== -->
+
         <section
             id="experience-main-view"
             class="experience-screen active-screen"
         >
 
-            <!-- Experience Logo -->
             <div class="experience-title-wrap">
 
                 <img
@@ -84,15 +64,15 @@
             </div>
 
 
-            <!-- Mecha Dojo -->
-            <div class="experience-card-container">
+            <div class="experience-card-grid">
+
+
+                <!-- MECHA DOJO -->
 
                 <article
                     id="mecha-dojo-card"
                     class="experience-card"
                     tabindex="0"
-                    role="button"
-                    aria-label="Open Mecha Dojo experience"
                 >
 
                     <div class="experience-card-image-frame">
@@ -105,11 +85,52 @@
 
                     </div>
 
+
                     <div class="experience-card-content">
 
                         <h2 class="experience-card-name">
                             MECHA DOJO
                         </h2>
+
+                        <div class="experience-card-role">
+                            FOUNDER
+                        </div>
+
+                        <div class="experience-card-action">
+                            CLICK TO EXPLORE
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COMING SOON -->
+
+                <article
+                    id="coming-soon-card"
+                    class="experience-card coming-soon-card"
+                    tabindex="0"
+                >
+
+                    <div class="coming-soon-image-frame">
+
+                        <div class="coming-soon-symbol">
+                            +
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-card-content">
+
+                        <h2 class="experience-card-name">
+                            COMING SOON
+                        </h2>
+
+                        <div class="experience-card-role">
+                            FOUNDER
+                        </div>
 
                         <div class="experience-card-action">
                             CLICK TO EXPLORE
@@ -125,14 +146,14 @@
 
 
         <!-- =====================================================
-             MECHA DOJO DETAIL VIEW
+             MECHA DOJO DETAIL
         ====================================================== -->
+
         <section
             id="experience-detail-view"
             class="experience-screen"
         >
 
-            <!-- Back Button -->
             <button
                 id="back-to-experience-btn"
                 class="minecraft-back-btn"
@@ -141,10 +162,8 @@
             </button>
 
 
-            <!-- Detail Panel -->
             <div class="experience-detail-panel">
 
-                <!-- Heading -->
                 <div class="experience-detail-heading">
 
                     <div class="experience-detail-small-title">
@@ -158,18 +177,16 @@
                 </div>
 
 
-                <!-- Main Detail Content -->
                 <div class="experience-detail-main">
 
-                    <!-- Left -->
                     <div class="experience-detail-left">
 
                         <div class="experience-detail-image-frame">
 
                             <img
                                 id="detail-experience-image"
-                                src="/experience/mecha-dojo/mecha-dojo.jpg"
-                                alt="Mecha Dojo"
+                                src=""
+                                alt=""
                             >
 
                         </div>
@@ -177,10 +194,8 @@
                     </div>
 
 
-                    <!-- Right -->
                     <div class="experience-detail-right">
 
-                        <!-- Role -->
                         <div class="experience-detail-field">
 
                             <div class="experience-detail-label">
@@ -195,22 +210,6 @@
                         </div>
 
 
-                        <!-- Duration -->
-                        <div class="experience-detail-field">
-
-                            <div class="experience-detail-label">
-                                DURATION
-                            </div>
-
-                            <div
-                                id="detail-experience-duration"
-                                class="experience-detail-value"
-                            ></div>
-
-                        </div>
-
-
-                        <!-- Description -->
                         <div class="experience-detail-field">
 
                             <div class="experience-detail-label">
@@ -225,7 +224,6 @@
                         </div>
 
 
-                        <!-- Responsibilities -->
                         <div class="experience-detail-field">
 
                             <div class="experience-detail-label">
@@ -240,7 +238,6 @@
                         </div>
 
 
-                        <!-- Skills -->
                         <div class="experience-detail-field">
 
                             <div class="experience-detail-label">
@@ -262,13 +259,57 @@
 
         </section>
 
+
+        <!-- =====================================================
+             COMING SOON DETAIL
+        ====================================================== -->
+
+        <section
+            id="coming-soon-detail-view"
+            class="experience-screen"
+        >
+
+            <button
+                id="back-from-coming-soon-btn"
+                class="minecraft-back-btn"
+            >
+                ← BACK TO EXPERIENCE
+            </button>
+
+
+            <div class="coming-soon-panel">
+
+                <div class="coming-soon-big-symbol">
+                    +
+                </div>
+
+                <div class="experience-detail-small-title">
+                    EXPERIENCE
+                </div>
+
+                <h1>
+                    COMING SOON
+                </h1>
+
+                <div class="coming-soon-role">
+                    FOUNDER
+                </div>
+
+                <p>
+                    More experience will be added here soon.
+                </p>
+
+            </div>
+
+        </section>
+
     </main>
 
 
-    <!-- =========================================================
-         EXPERIENCE JAVASCRIPT
-    ========================================================== -->
-    <script type="module" src="/src/experience/index.js"></script>
+    <script
+        type="module"
+        src="/src/experience/index.js"
+    ></script>
 
 </body>
 </html>
